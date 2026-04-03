@@ -727,6 +727,10 @@ html {
   border-radius: 8px;
   padding: 0.6rem 0.5rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .io-in { background: #e8f4fd; }
