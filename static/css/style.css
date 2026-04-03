@@ -488,8 +488,9 @@ html {
   flex-wrap: nowrap;
   gap: 0.4rem;
   margin: 1.5rem 0;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.5rem;
   overflow-x: auto;
+  overflow-y: visible;
 }
 
 .pipe-step {
