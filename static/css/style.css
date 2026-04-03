@@ -602,6 +602,18 @@ html {
   margin-left: 0.3rem;
 }
 
+.team-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #3273dc, #1a56c4);
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  margin-top: 0.3rem;
+  letter-spacing: 0.03em;
+}
+
 .team-card .io-list {
   flex: 1;
   display: flex;
