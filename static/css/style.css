@@ -569,10 +569,8 @@ html {
   padding: 1.25rem;
   box-shadow: 0 2px 10px rgba(0,0,0,0.06);
   height: 100%;
-  min-height: 175px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -603,6 +601,11 @@ html {
   margin-left: 0.3rem;
 }
 
+.team-badge-wrap {
+  min-height: 1.4rem;
+  margin-bottom: 0.2rem;
+}
+
 .team-badge {
   display: inline-block;
   background: linear-gradient(135deg, #3273dc, #1a56c4);
@@ -611,7 +614,6 @@ html {
   font-weight: 700;
   padding: 0.15rem 0.5rem;
   border-radius: 4px;
-  margin-bottom: 0.4rem;
   letter-spacing: 0.03em;
 }
 
