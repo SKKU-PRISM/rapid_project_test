@@ -9,7 +9,7 @@
   <title>RAPIDS - Robot AI Agents Pipeline for Intelligent Data Collection & Skill Learning</title>
 
   <!-- Fonts & Frameworks -->
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Google+Sans:wght@400;500;600;700&family=Noto+Sans&family=Castoro&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
@@ -143,25 +143,14 @@
         <h2 class="title is-3" id="abstract">Abstract</h2>
         <div class="content has-text-justified" data-aos="fade-up">
           <p>
-            High-quality demonstration data is the primary bottleneck in robot learning research.
-            Teleoperation-based collection yields only 10&ndash;20 episodes per hour, requires skilled operators,
-            and suffers from quality variance due to operator fatigue and proficiency differences.
+            <b>RAPIDS</b> is a multi-agent system that <b>fully automates</b> the robot data collection and learning pipeline.
+            From a single natural language instruction, 6 AI agents autonomously handle
+            task specification, simulation generation, data collection, quality verification, robot control, and VLA fine-tuning.
           </p>
           <p>
-            We present <b>RAPIDS</b>, a multi-agent system that <b>fully automates</b> the robot data collection
-            and learning pipeline. From a single natural language instruction, RAPIDS autonomously
-            converts the task into a structured specification (<b>A-1</b>),
-            generates a simulation environment in IsaacLab (<b>A-2</b>),
-            collects demonstration data via LLM-generated code in both simulation and the real world (<b>A-3</b>),
-            validates quality through dual pre/post verification (<b>A-4</b>),
-            executes on heterogeneous robots via a unified control framework (<b>B-1</b>),
-            and fine-tunes VLA models with LoRA adapters (<b>B-2</b>).
-          </p>
-          <p>
-            RAPIDS produced <b>57 GB</b> of simulation data across <b>13 tasks</b> (78% episode success rate)
-            and <b>10 GB</b> of real-world data across <b>14 tasks</b> on 3 robot platforms (SO-101 single-arm, SO-101 dual-arm, UR7e),
-            reducing new-task pipeline time from <b>4&ndash;8 weeks to 17 minutes</b>
-            and per-episode cost from <b>$10&ndash;50</b> (operator labor) to <b>~$0.1</b> (API cost).
+            Result: <b>67 GB</b> data across <b>27 tasks</b> on 3 robot platforms,
+            pipeline time <b>4&ndash;8 weeks &rarr; 17 min</b>,
+            cost <b>$10&ndash;50 &rarr; ~$0.1</b> per episode.
           </p>
         </div>
       </div>
@@ -284,34 +273,21 @@
           <div class="column is-4" data-aos="fade-up" data-aos-delay="0">
             <div class="diff-card diff-1">
               <h4><i class="fas fa-infinity"></i>&ensp;End-to-End Autonomy</h4>
-              <p>
-                From a single natural language input, the Orchestrator coordinates all 6 agents
-                to produce trained VLA models &mdash; no manual environment setup, data collection,
-                or quality review required. Reduces pipeline time from <b>4&ndash;8 weeks to 17 minutes</b>.
-              </p>
+              <p>NL input &rarr; 6 agents &rarr; trained VLA model. No manual steps. <b>4&ndash;8 weeks &rarr; 17 min.</b></p>
             </div>
           </div>
           <!-- Closed-Loop Quality -->
           <div class="column is-4" data-aos="fade-up" data-aos-delay="100">
             <div class="diff-card diff-2">
               <h4><i class="fas fa-sync-alt"></i>&ensp;Closed-Loop Quality</h4>
-              <p>
-                Dual pre/post verification with automatic feedback loops:
-                A-2 self-refinement (up to 5 retries), A-3 3-tier success validation
-                (geometric &rarr; VLM Judge &rarr; environment flag), A-4 AST static analysis + VLM visual scoring,
-                and B-1 real-time 10Hz monitoring.
-              </p>
+              <p>Auto self-refinement, 3-tier validation, AST + VLM dual verification, 10Hz real-time monitoring.</p>
             </div>
           </div>
           <!-- Physical World -->
           <div class="column is-4" data-aos="fade-up" data-aos-delay="200">
             <div class="diff-card diff-3">
               <h4><i class="fas fa-cogs"></i>&ensp;Physical World Design</h4>
-              <p>
-                Physics-aware at every level: Pinocchio 6-DOF IK with reachability verification,
-                PhysX 5 stability checks, automatic Domain Randomization for sim-to-real transfer,
-                and low-level safety limits (Trajectory/Joint/Cartesian + gripper control).
-              </p>
+              <p>6-DOF IK, PhysX 5 physics, auto Domain Randomization, low-level safety limits.</p>
             </div>
           </div>
         </div>
@@ -469,6 +445,26 @@
           </div>
         </div>
 
+        <!-- Generated IsaacLab Environment Screenshots -->
+        <div class="columns is-multiline is-mobile" data-aos="fade-up" style="margin-top: 1rem;">
+          <div class="column is-3-desktop is-6-mobile" style="padding: 0.3rem;">
+            <img src="./assets/sim_screenshots/stacktray.png" alt="StackTray environment" style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+            <p class="has-text-grey is-size-7 has-text-centered">Stack in Tray</p>
+          </div>
+          <div class="column is-3-desktop is-6-mobile" style="padding: 0.3rem;">
+            <img src="./assets/sim_screenshots/colorsort.png" alt="ColorSort environment" style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+            <p class="has-text-grey is-size-7 has-text-centered">Color Sort</p>
+          </div>
+          <div class="column is-3-desktop is-6-mobile" style="padding: 0.3rem;">
+            <img src="./assets/sim_screenshots/multipick.png" alt="MultiPickPlace environment" style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+            <p class="has-text-grey is-size-7 has-text-centered">Multi Pick&amp;Place</p>
+          </div>
+          <div class="column is-3-desktop is-6-mobile" style="padding: 0.3rem;">
+            <img src="./assets/sim_screenshots/drawer.png" alt="Drawer environment" style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+            <p class="has-text-grey is-size-7 has-text-centered">Drawer Pick&amp;Place</p>
+          </div>
+        </div>
+
         <!-- Sub: Data Collection (A-3) -->
         <h4 class="title is-5" style="margin-top: 1.5rem;">Data Collection [A-3]</h4>
         <div class="columns is-multiline">
@@ -561,39 +557,6 @@
               <span class="metric-value" style="color: #845ef7;">7</span>
               <span class="metric-label">Training Datasets</span>
               <span class="metric-detail">Avg. 32.5 episodes, 410 steps</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sub: Evaluator Scores (A-4) -->
-        <h4 class="title is-5" style="margin-top: 1.5rem;">Evaluator Breakdown [A-4]</h4>
-        <div class="columns is-multiline is-mobile">
-          <div class="column is-3-desktop is-6-mobile">
-            <div class="result-metric">
-              <span class="metric-value" style="color: #e67e22;">33.4 / 40</span>
-              <span class="metric-label">Scene Fidelity</span>
-              <span class="metric-detail">Asset, physics, robot config</span>
-            </div>
-          </div>
-          <div class="column is-3-desktop is-6-mobile">
-            <div class="result-metric">
-              <span class="metric-value" style="color: #e67e22;">13.6 / 20</span>
-              <span class="metric-label">MDP Correctness</span>
-              <span class="metric-detail">Obs / reward / termination</span>
-            </div>
-          </div>
-          <div class="column is-3-desktop is-6-mobile">
-            <div class="result-metric">
-              <span class="metric-value" style="color: #e67e22;">9.3 / 15</span>
-              <span class="metric-label">Task Alignment</span>
-              <span class="metric-detail">Goal conditions, thresholds</span>
-            </div>
-          </div>
-          <div class="column is-3-desktop is-6-mobile">
-            <div class="result-metric">
-              <span class="metric-value" style="color: #e67e22;">16.8 / 25</span>
-              <span class="metric-label">Runtime Validity</span>
-              <span class="metric-detail">Env creation, physics, NaN/Inf</span>
             </div>
           </div>
         </div>
@@ -814,63 +777,15 @@
           </div>
         </div>
 
+        <!-- Robot Build Video -->
+        <div style="margin-top: 1.5rem;" data-aos="fade-up">
+          <video autoplay muted playsinline loop
+                 style="width: 100%; max-width: 600px; display: block; margin: 0 auto; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+            <source src="./assets/robot_3dprint.mp4" type="video/mp4">
+          </video>
+          <p class="has-text-grey is-size-7 has-text-centered" style="margin-top: 0.5rem;">SO-101 robot arm: 3D printing &amp; assembly</p>
+        </div>
 
-        <!-- AI Models Used -->
-        <h4 class="title is-5" style="margin-top: 2rem;">AI Models &amp; Tools</h4>
-        <table class="styled-table">
-          <thead>
-            <tr>
-              <th>Component</th>
-              <th>Proposed</th>
-              <th>Actual</th>
-              <th>Note</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>LLM (code/task)</td>
-              <td>GPT-5.1-codex-max, GPT-5.2</td>
-              <td>GPT-5, GPT-5-mini (Azure OpenAI)</td>
-              <td>&mdash;</td>
-            </tr>
-            <tr>
-              <td>VLM</td>
-              <td>Cosmos-Reason1-7B</td>
-              <td>GPT-5, Gemini (multi-backend)</td>
-              <td>Flexible multi-backend</td>
-            </tr>
-            <tr>
-              <td>VLA</td>
-              <td>GROOT-N1.5, Pi0.5</td>
-              <td>GR00T N1.5, OpenVLA, LeRobot</td>
-              <td>LoRA adapters via [B-2]</td>
-            </tr>
-            <tr>
-              <td>Simulator</td>
-              <td>Isaac Sim + Genesis</td>
-              <td>Isaac Sim (IsaacLab)</td>
-              <td>&mdash;</td>
-            </tr>
-            <tr>
-              <td>Inverse Kinematics</td>
-              <td>cuRobo</td>
-              <td>Pinocchio + IsaacLab DifferentialIK</td>
-              <td>6-DOF IK + FK verification</td>
-            </tr>
-            <tr>
-              <td>Pre-verification</td>
-              <td>Z3 SMT Solver</td>
-              <td>AST-based rule verification</td>
-              <td>Same core objective achieved</td>
-            </tr>
-            <tr>
-              <td>Data Format</td>
-              <td>Open X-Embodiment</td>
-              <td>LeRobot v3.0 (OXE compatible)</td>
-              <td>Compatibility maintained</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </div>
 
@@ -937,48 +852,28 @@
         <h2 class="title is-3" data-aos="fade-up">Impact</h2>
 
         <div class="columns is-multiline" style="margin-top: 1rem;">
-          <div class="column is-6">
+          <div class="column is-6" data-aos="fade-up" data-aos-delay="0">
             <div class="diff-card diff-1">
               <h4><i class="fas fa-rocket"></i>&ensp;Research Productivity</h4>
-              <p>
-                Automates the biggest bottleneck in robot learning &mdash; data collection &mdash;
-                reducing experiment iteration cycles from <b>weeks to days</b>.
-                RAPIDS produced 13 simulation tasks (57 GB) and 14 real-world tasks (10 GB)
-                in batch mode without human intervention, accelerating Embodied AI research at large.
-              </p>
+              <p>Experiment iteration: <b>weeks &rarr; days</b>. 27 tasks, 67 GB data — fully autonomous batch production.</p>
             </div>
           </div>
-          <div class="column is-6">
+          <div class="column is-6" data-aos="fade-up" data-aos-delay="100">
             <div class="diff-card diff-2">
-              <h4><i class="fas fa-door-open"></i>&ensp;Lower Barrier to Entry</h4>
-              <p>
-                Previously, environment setup alone took 1&ndash;2 weeks and data collection 2&ndash;4 weeks,
-                totaling 4&ndash;8 weeks of engineering effort. RAPIDS compresses this to <b>5&ndash;7 days</b>
-                with natural-language-level task definitions. 82 task YAMLs, 4 robot profiles, and a plugin
-                architecture enable instant extension via config files.
-              </p>
+              <h4><i class="fas fa-door-open"></i>&ensp;Lower Barrier</h4>
+              <p>NL-level task definition. 82 YAML templates + 4 robot profiles. Extend via config, not code.</p>
             </div>
           </div>
-          <div class="column is-6">
+          <div class="column is-6" data-aos="fade-up" data-aos-delay="0">
             <div class="diff-card diff-3">
-              <h4><i class="fas fa-globe"></i>&ensp;Open Data Ecosystem</h4>
-              <p>
-                All demonstration data is published in <b>LeRobot v3.0</b> (Open X-Embodiment compatible) format
-                on <a href="https://huggingface.co/skkuprism">HuggingFace</a>.
-                Source code, models, and data are openly available, addressing the data scarcity problem
-                in VLA model research and improving reproducibility across the community.
-              </p>
+              <h4><i class="fas fa-globe"></i>&ensp;Open Data</h4>
+              <p>All data in <b>LeRobot v3.0</b> (OXE compatible) on <a href="https://huggingface.co/skkuprism">HuggingFace</a>. Code, models, data — all open.</p>
             </div>
           </div>
-          <div class="column is-6">
+          <div class="column is-6" data-aos="fade-up" data-aos-delay="100">
             <div class="diff-card diff-1">
-              <h4><i class="fas fa-industry"></i>&ensp;Industrial Applicability</h4>
-              <p>
-                Conventional teleoperation costs <b>$10&ndash;50 per episode</b> (operator labor).
-                RAPIDS replaces this with simulation compute at <b>~$0.02 per episode</b> (API cost).
-                Multi-robot support enables multi-platform deployment in manufacturing, logistics,
-                and service robotics with dramatically reduced data collection and model training costs.
-              </p>
+              <h4><i class="fas fa-industry"></i>&ensp;Cost Reduction</h4>
+              <p>Per-episode: <b>$10&ndash;50 &rarr; ~$0.1</b>. Multi-robot, multi-platform deployment ready.</p>
             </div>
           </div>
         </div>
