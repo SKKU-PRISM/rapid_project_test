@@ -76,7 +76,7 @@
             <span class="author-block">Soyoung Kim,</span>
             <span class="author-block">Hyeonseok Cho,</span>
             <span class="author-block">Sihyeong Yoon,</span>
-            <span class="author-block">Sanghyeon An,</span>
+            <span class="author-block">Sanghyeon Ahn,</span>
             <span class="author-block">Seungchan An</span>
           </div>
 
@@ -325,236 +325,106 @@
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3" id="agents">Agents</h2>
-        <div class="content has-text-justified">
-          <p>
-            Each agent is a specialized module with its own AI models, inputs/outputs, and verification mechanisms.
-            Together they form a fully automated pipeline spanning task specification to model deployment.
-          </p>
-        </div>
-
         <div class="columns is-multiline" style="margin-top: 1rem;">
 
-          <!-- A-1: Task Definition -->
+          <!-- A-1 -->
           <div class="column is-6" data-aos="fade-up" data-aos-delay="0">
             <div class="agent-detail">
               <div class="agent-header agent-header-a1">
                 <i class="fas fa-comment-dots"></i>
-                <div>
-                  <h4>Task Definition Agent <span class="agent-id">[A-1]</span></h4>
-                </div>
+                <div><h4>Task Definition <span class="agent-id">[A-1]</span></h4></div>
               </div>
               <div class="agent-body">
-                <p class="agent-purpose">
-                  Converts natural language task descriptions into structured YAML specifications
-                  via RAG-powered LLM pipeline with a library of 82 indexed tasks.
-                </p>
+                <p class="agent-purpose">NL &rarr; YAML task spec via RAG + LLM (82 indexed tasks)</p>
                 <div class="agent-meta">
-                  <span class="meta-tag">GPT-5</span>
-                  <span class="meta-tag">GPT-5-mini</span>
-                  <span class="meta-tag">all-MiniLM-L6-v2</span>
-                  <span class="meta-tag">RAG</span>
+                  <span class="meta-tag">GPT-5</span><span class="meta-tag">RAG</span><span class="meta-tag">MiniLM-L6</span>
                 </div>
-                <div class="agent-io">
-                  <strong>Input:</strong> Natural language task description<br>
-                  <strong>Output:</strong> Structured YAML task specification
-                </div>
-                <ul class="agent-techs">
-                  <li>LLM-based NL parsing and task decomposition</li>
-                  <li>Vector search RAG (82 task library indexed)</li>
-                  <li>Structured YAML spec generation with constraints</li>
-                </ul>
-                <div class="agent-results">
-                  <strong>Result:</strong> 82 task specs generated across 8 categories, 4 robot types
-                </div>
+                <div class="agent-results"><strong>82</strong> task specs &bull; <strong>8</strong> categories &bull; <strong>4</strong> robot types</div>
               </div>
             </div>
           </div>
 
-          <!-- A-2: Simulation Generation -->
+          <!-- A-2 -->
           <div class="column is-6" data-aos="fade-up" data-aos-delay="100">
             <div class="agent-detail">
               <div class="agent-header agent-header-a2">
                 <i class="fas fa-cube"></i>
-                <div>
-                  <h4>Simulation Generation Agent <span class="agent-id">[A-2]</span></h4>
-                </div>
+                <div><h4>Sim Generation <span class="agent-id">[A-2]</span></h4></div>
               </div>
               <div class="agent-body">
-                <p class="agent-purpose">
-                  Automatically generates complete IsaacLab simulation environment code from YAML task specs,
-                  with physics-aware placement and adaptive Domain Randomization.
-                </p>
+                <p class="agent-purpose">YAML &rarr; IsaacLab env code with self-refinement &amp; Domain Randomization</p>
                 <div class="agent-meta">
-                  <span class="meta-tag">GPT-5</span>
-                  <span class="meta-tag">GPT-5-mini</span>
-                  <span class="meta-tag">Gemini</span>
-                  <span class="meta-tag">IsaacLab</span>
+                  <span class="meta-tag">GPT-5</span><span class="meta-tag">Gemini</span><span class="meta-tag">IsaacLab</span>
                 </div>
-                <div class="agent-io">
-                  <strong>Input:</strong> YAML task specification<br>
-                  <strong>Output:</strong> IsaacLab ManagerBasedRLEnv Python code
-                </div>
-                <ul class="agent-techs">
-                  <li>LLM code generation with 679-line system prompt</li>
-                  <li>Self-refinement loop (up to 5 auto-corrections)</li>
-                  <li>Adaptive Domain Randomization (YAML &rarr; EventTermCfg)</li>
-                  <li>VLM-based visual environment verification</li>
-                </ul>
-                <div class="agent-results">
-                  <strong>Result:</strong> Code Runnability 87/100 &bull; 4 robot types &bull; 8 task categories
-                </div>
+                <div class="agent-results"><strong>87/100</strong> runnability &bull; <strong>5</strong> auto-retries &bull; VLM visual check</div>
               </div>
             </div>
           </div>
 
-          <!-- A-3: Data Collection -->
+          <!-- A-3 -->
           <div class="column is-6" data-aos="fade-up" data-aos-delay="0">
             <div class="agent-detail">
               <div class="agent-header agent-header-a3">
                 <i class="fas fa-database"></i>
-                <div>
-                  <h4>Data Collection Agent <span class="agent-id">[A-3]</span></h4>
-                </div>
+                <div><h4>Data Collection <span class="agent-id">[A-3]</span></h4></div>
               </div>
               <div class="agent-body">
-                <p class="agent-purpose">
-                  Collects robot demonstration data in both simulation (IsaacLab) and real-world environments
-                  using LLM-generated control code with automatic Forward-Reset loops.
-                </p>
+                <p class="agent-purpose">Code-as-Policies data collection with 6-DOF IK &amp; Forward-Reset loop (sim + real)</p>
                 <div class="agent-meta">
-                  <span class="meta-tag">Gemini 3.1 Flash</span>
-                  <span class="meta-tag">GPT-5.2</span>
-                  <span class="meta-tag">Pinocchio IK</span>
-                  <span class="meta-tag">LeRobot v3.0</span>
+                  <span class="meta-tag">Gemini</span><span class="meta-tag">Pinocchio IK</span><span class="meta-tag">LeRobot v3.0</span>
                 </div>
-                <div class="agent-io">
-                  <strong>Input:</strong> Task instruction + environment/scene + primitive skills<br>
-                  <strong>Output:</strong> LeRobot v3.0 demonstration dataset
-                </div>
-                <ul class="agent-techs">
-                  <li>6-DOF IK (Pinocchio + DifferentialIK fallback)</li>
-                  <li>3-tier success validation (Geometric &rarr; VLM &rarr; Env flag)</li>
-                  <li>Forward-Reset loop for continuous unattended collection</li>
-                  <li>Bi-arm coordination + multi-camera recording</li>
-                  <li>Random seed placement for data diversity</li>
-                </ul>
-                <div class="agent-results">
-                  <strong>Sim:</strong> 13 tasks, 57 GB, 78% success &bull;
-                  <strong>Real:</strong> 14 tasks, 10 GB, 68&ndash;92% success
-                </div>
+                <div class="agent-results"><strong>Sim:</strong> 13 tasks, 57 GB, 78% &bull; <strong>Real:</strong> 14 tasks, 10 GB</div>
               </div>
             </div>
           </div>
 
-          <!-- A-4: Verification -->
+          <!-- A-4 -->
           <div class="column is-6" data-aos="fade-up" data-aos-delay="100">
             <div class="agent-detail">
               <div class="agent-header agent-header-a4">
                 <i class="fas fa-shield-alt"></i>
-                <div>
-                  <h4>Pre &amp; Post Validator <span class="agent-id">[A-4]</span></h4>
-                </div>
+                <div><h4>Dual Validator <span class="agent-id">[A-4]</span></h4></div>
               </div>
               <div class="agent-body">
-                <p class="agent-purpose">
-                  Dual verification system: pre-execution static code analysis (AST-based)
-                  and post-execution visual validation (VLM-based) with 100-point scoring.
-                </p>
+                <p class="agent-purpose">Pre (AST static analysis) + Post (VLM visual scoring) &rarr; 100-point quality gate</p>
                 <div class="agent-meta">
-                  <span class="meta-tag">GPT-5</span>
-                  <span class="meta-tag">GPT-5-mini</span>
-                  <span class="meta-tag">AST Parser</span>
-                  <span class="meta-tag">VLM Evaluator</span>
+                  <span class="meta-tag">AST</span><span class="meta-tag">VLM</span><span class="meta-tag">GPT-5</span>
                 </div>
-                <div class="agent-io">
-                  <strong>Input:</strong> LLM-generated code + YAML task spec<br>
-                  <strong>Output:</strong> Score (0&ndash;100) + violation feedback
-                </div>
-                <ul class="agent-techs">
-                  <li>Scene Fidelity: asset completeness, physics, robot config</li>
-                  <li>MDP Correctness: observation/reward/termination validity</li>
-                  <li>Task Alignment: goal condition mapping, threshold check</li>
-                  <li>Runtime Validity: env creation, physics stability, NaN/Inf</li>
-                  <li>VLM visual scoring on front/top screenshots</li>
-                </ul>
-                <div class="agent-results">
-                  <strong>Result:</strong> Static + visual dual verification with auto-correction feedback loop
-                </div>
+                <div class="agent-results"><strong>SF</strong> 33/40 &bull; <strong>MDP</strong> 14/20 &bull; <strong>TA</strong> 9/15 &bull; <strong>RV</strong> 17/25</div>
               </div>
             </div>
           </div>
 
-          <!-- B-1: Robot Control -->
+          <!-- B-1 -->
           <div class="column is-6" data-aos="fade-up" data-aos-delay="0">
             <div class="agent-detail">
               <div class="agent-header agent-header-b1">
                 <i class="fas fa-robot"></i>
-                <div>
-                  <h4>Robot Control Framework <span class="agent-id">[B-1]</span></h4>
-                </div>
+                <div><h4>Robot Control <span class="agent-id">[B-1]</span></h4></div>
               </div>
               <div class="agent-body">
-                <p class="agent-purpose">
-                  Hierarchical heterogeneous robot control pipeline with ROS2 communication,
-                  plugin-based robot adapters, and real-time VLM monitoring.
-                </p>
+                <p class="agent-purpose">5-stage hierarchical pipeline: Perception &rarr; Planner &rarr; Controller &rarr; Robot &rarr; Monitor</p>
                 <div class="agent-meta">
-                  <span class="meta-tag">GR00T N1.5</span>
-                  <span class="meta-tag">OpenVLA</span>
-                  <span class="meta-tag">LeRobot</span>
-                  <span class="meta-tag">ROS2 Humble</span>
-                  <span class="meta-tag">LangChain</span>
+                  <span class="meta-tag">GR00T N1.5</span><span class="meta-tag">ROS2</span><span class="meta-tag">LangChain</span>
                 </div>
-                <div class="agent-io">
-                  <strong>Input:</strong> NL command + RGB/RGBD image + model selection<br>
-                  <strong>Output:</strong> Robot trajectory / joint control commands
-                </div>
-                <ul class="agent-techs">
-                  <li>5-stage pipeline: Perception &rarr; Planner &rarr; Controller &rarr; Robot &rarr; Monitor</li>
-                  <li>Plugin adapter system (CustomRobot/RobotBackend abstraction)</li>
-                  <li>Trajectory/Joint/Cartesian command types + gripper control</li>
-                  <li>Real-time 10Hz monitoring with VLM visual judgment</li>
-                </ul>
-                <div class="agent-results">
-                  <strong>Result:</strong> RoboCasa 16 tasks + LIBERO 10 tasks &bull; Franka & UR7e validated
-                </div>
+                <div class="agent-results">RoboCasa <strong>16</strong> tasks &bull; LIBERO <strong>10</strong> tasks &bull; Franka &amp; UR7e</div>
               </div>
             </div>
           </div>
 
-          <!-- B-2: VLA Training -->
+          <!-- B-2 -->
           <div class="column is-6" data-aos="fade-up" data-aos-delay="100">
             <div class="agent-detail">
               <div class="agent-header agent-header-b2">
                 <i class="fas fa-brain"></i>
-                <div>
-                  <h4>VLA Fine-Tuning <span class="agent-id">[B-2]</span></h4>
-                </div>
+                <div><h4>VLA Fine-Tuning <span class="agent-id">[B-2]</span></h4></div>
               </div>
               <div class="agent-body">
-                <p class="agent-purpose">
-                  Fine-tunes pre-trained VLA models with LoRA adapters using demonstration data
-                  collected by A-3, enabling task-specific adapter switching in under 10ms.
-                </p>
+                <p class="agent-purpose">LoRA adapter fine-tuning with task-specific hot-swap (&lt; 10ms)</p>
                 <div class="agent-meta">
-                  <span class="meta-tag">GR00T N1.5</span>
-                  <span class="meta-tag">SmolVLA</span>
-                  <span class="meta-tag">Pi0.5</span>
-                  <span class="meta-tag">LoRA</span>
+                  <span class="meta-tag">GR00T N1.5</span><span class="meta-tag">Pi0.5</span><span class="meta-tag">LoRA</span>
                 </div>
-                <div class="agent-io">
-                  <strong>Input:</strong> A-3 demonstration data + pre-trained VLA model<br>
-                  <strong>Output:</strong> Fine-tuned VLA model with task-specific LoRA adapter
-                </div>
-                <ul class="agent-techs">
-                  <li>LoRA adapter-based VLA fine-tuning pipeline</li>
-                  <li>LeRobot v3.0 data preprocessing (80/20 train/val split)</li>
-                  <li>Task-specific adapter hot-swapping (&lt; 10ms)</li>
-                  <li>3 VLA backend support (GR00T, SmolVLA, Pi0.5)</li>
-                </ul>
-                <div class="agent-results">
-                  <strong>Result:</strong> LIBERO 73.5% &bull; RoboCasa 14.7% (+8.5%) &bull; 2h training on H100x4
-                </div>
+                <div class="agent-results">LIBERO <strong>73.5%</strong> &bull; RoboCasa <strong>14.7%</strong> (+8.5%) &bull; 2h on H100x4</div>
               </div>
             </div>
           </div>
@@ -1168,7 +1038,7 @@
               <td>SKKU Software (M.S./Ph.D.)</td>
             </tr>
             <tr>
-              <td>Sanghyeon An</td>
+              <td>Sanghyeon Ahn</td>
               <td>B-1, B-2</td>
               <td>Embodied agents (2+ yrs)</td>
               <td>SKKU Software (M.S.)</td>
@@ -1199,7 +1069,7 @@
     <h2 class="title">Citation</h2>
     <pre><code>@misc{rapids2026,
   author    = {Yu, Minjong and Kim, Wookyung and Kim, Soyoung and
-               Cho, Hyeonseok and Yoon, Sihyeong and An, Sanghyeon and An, Seungchan},
+               Cho, Hyeonseok and Yoon, Sihyeong and Ahn, Sanghyeon and An, Seungchan},
   title     = {RAPIDS: Robot AI Agents Pipeline for Intelligent Data Collection
                and Skill Learning},
   year      = {2026},
