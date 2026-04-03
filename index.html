@@ -851,32 +851,37 @@
       <div class="column is-full-width">
         <h2 class="title is-3" data-aos="fade-up">Impact</h2>
 
-        <div class="columns is-multiline" style="margin-top: 1rem;">
-          <div class="column is-6" data-aos="fade-up" data-aos-delay="0">
-            <div class="diff-card diff-1">
-              <h4><i class="fas fa-rocket"></i>&ensp;Research Productivity</h4>
-              <p>Experiment iteration: <b>weeks &rarr; days</b>. 27 tasks, 67 GB data — fully autonomous batch production.</p>
-            </div>
-          </div>
-          <div class="column is-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="diff-card diff-2">
-              <h4><i class="fas fa-door-open"></i>&ensp;Lower Barrier</h4>
-              <p>NL-level task definition. 82 YAML templates + 4 robot profiles. Extend via config, not code.</p>
-            </div>
-          </div>
-          <div class="column is-6" data-aos="fade-up" data-aos-delay="0">
-            <div class="diff-card diff-3">
-              <h4><i class="fas fa-globe"></i>&ensp;Open Data</h4>
-              <p>All data in <b>LeRobot v3.0</b> (OXE compatible) on <a href="https://huggingface.co/skkuprism">HuggingFace</a>. Code, models, data — all open.</p>
-            </div>
-          </div>
-          <div class="column is-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="diff-card diff-1">
-              <h4><i class="fas fa-industry"></i>&ensp;Cost Reduction</h4>
-              <p>Per-episode: <b>$10&ndash;50 &rarr; ~$0.1</b>. Multi-robot, multi-platform deployment ready.</p>
-            </div>
-          </div>
-        </div>
+        <table class="styled-table" style="margin-top: 1rem;" data-aos="fade-up">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Conventional</th>
+              <th>RAPIDS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><i class="fas fa-rocket" style="color:#3273dc;"></i>&ensp;<b>Research Productivity</b></td>
+              <td>Experiment iteration: weeks</td>
+              <td><b>Days</b> &mdash; 27 tasks, 67 GB, fully autonomous</td>
+            </tr>
+            <tr>
+              <td><i class="fas fa-door-open" style="color:#3273dc;"></i>&ensp;<b>Barrier to Entry</b></td>
+              <td>Manual env/reward code per task</td>
+              <td><b>NL input only</b> &mdash; 82 YAML + 4 robot profiles</td>
+            </tr>
+            <tr>
+              <td><i class="fas fa-globe" style="color:#3273dc;"></i>&ensp;<b>Data Ecosystem</b></td>
+              <td>Closed, lab-specific formats</td>
+              <td><b>Open</b> &mdash; LeRobot v3.0 (OXE) on <a href="https://huggingface.co/skkuprism">HuggingFace</a></td>
+            </tr>
+            <tr>
+              <td><i class="fas fa-industry" style="color:#3273dc;"></i>&ensp;<b>Cost</b></td>
+              <td>$10&ndash;50 / episode (operator)</td>
+              <td><b>~$0.1</b> / episode (API only)</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
