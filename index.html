@@ -252,58 +252,20 @@
 
         <!-- System Architecture Diagram -->
         <div style="margin: 2rem 0;" data-aos="zoom-in" data-aos-duration="800">
-          <img src="./assets/rapids_pipeline.png" alt="RAPIDS pipeline: NL → A-1 Task Spec → A-2 Sim Generation → A-3 Data Collection → A-4 Verification"
+          <img src="./assets/rapids_pipeline.png" alt="RAPIDS pipeline overview: Simulation (A-1 Spec → A-2 Sim Gen → Generated Env) and Real-World (Perception → A-3 Code Gen → Execution), verified by A-4 Judge"
                style="width: 100%; border-radius: 12px; box-shadow: 0 6px 25px rgba(0,0,0,0.12);">
         </div>
 
         <div class="highlight-box" data-aos="fade-up">
           <p>
-            <strong>Pipeline Flow:</strong>
-            A natural language command (e.g., <em>"Stack the blocks inside the tray"</em>) is processed by
-            <b>A-1</b> into a YAML task spec, <b>A-2</b> generates an IsaacLab simulation environment,
-            <b>A-3</b> collects demonstrations via LLM-generated code (in both sim and real),
-            <b>A-4</b> validates code and data quality through dual verification,
-            <b>B-1</b> provides unified heterogeneous robot control, and
-            <b>B-2</b> fine-tunes VLA models with LoRA adapters &mdash;
-            all <strong>without human intervention</strong>.
-          </p>
-        </div>
-
-        <!-- Core Algorithms -->
-        <h3 class="title is-4" style="margin-top: 2rem;">Core Algorithms</h3>
-
-        <div class="content has-text-justified">
-          <h5>LLM-based IsaacLab Code Generation</h5>
-          <p>
-            A 679-line system prompt (<code>prompts/isaaclab_generation.md</code>) defines YAML &rarr; IsaacLab
-            <code>ManagerBasedRLEnv</code> code conversion rules, with category-specific reference code as few-shot examples.
-            On execution failure, the error log is fed back to the LLM for up to <b>5 automatic self-refinements</b>.
-            For complex assembly tasks, deterministic templates bypass LLM hallucination.
-          </p>
-
-          <h5>Code-as-Policies Data Collection</h5>
-          <p>
-            The LLM generates skill sequences by composing Perception APIs and action primitives.
-            Execution uses <b>Pinocchio</b> (primary) + <b>IsaacLab DifferentialIK</b> (fallback) for 6-DOF IK
-            (palm-down default &rarr; &plusmn;15&deg;/&plusmn;30&deg; tilt fallback &rarr; 3-DOF fallback,
-            <code>num_random_samples=30</code>). A <b>3-tier success validation</b>
-            (geometric check &rarr; VLM Judge &rarr; environment flag) filters out failed episodes immediately.
-          </p>
-
-          <h5>Dual Pre/Post Verification</h5>
-          <p>
-            <b>Pre-execution:</b> AST-based static analysis checks whether LLM-generated code satisfies the YAML spec,
-            returning concrete violation feedback for iterative correction.
-            <b>Post-execution:</b> VLM receives rendered screenshots (front/top views) and scores environment creation
-            success and task completion quality on a 100-point scale
-            (Scene Fidelity 40 + MDP Correctness 20 + Task Alignment 15 + Runtime Validity 25).
-          </p>
-
-          <h5>LoRA Adapter VLA Fine-Tuning</h5>
-          <p>
-            LeRobot v3.0 demonstration data is preprocessed (80/20 train/val split, normalization statistics)
-            to fine-tune pre-trained VLA models (GR00T N1.5, Pi0.5) via LoRA adapters.
-            Task-specific adapters are hot-swapped in <b>&lt; 10ms</b> through the B-1 Controller module.
+            <strong>NL &rarr; Sim &rarr; Real &rarr; Verified Dataset:</strong>
+            <b>A-1</b> converts natural language to YAML spec &rarr;
+            <b>A-2</b> generates IsaacLab environment &rarr;
+            <b>A-3</b> collects data via Code-as-Policies (sim &amp; real) &rarr;
+            <b>A-4</b> validates quality &rarr;
+            <b>B-1</b> controls heterogeneous robots &rarr;
+            <b>B-2</b> fine-tunes VLA with LoRA &mdash;
+            <strong>fully autonomous, no human intervention.</strong>
           </p>
         </div>
       </div>
@@ -401,11 +363,6 @@
                   <li>Vector search RAG (82 task library indexed)</li>
                   <li>Structured YAML spec generation with constraints</li>
                 </ul>
-                <!-- Placeholder for A-1 demo -->
-                <div class="placeholder placeholder-small" style="margin-bottom: 1rem;">
-                  <i class="fas fa-image"></i>
-                  <span class="placeholder-hint">PLACEHOLDER: A-1 demo image</span>
-                </div>
                 <div class="agent-results">
                   <strong>Result:</strong> 82 task specs generated across 8 categories, 4 robot types
                 </div>
@@ -443,11 +400,6 @@
                   <li>Adaptive Domain Randomization (YAML &rarr; EventTermCfg)</li>
                   <li>VLM-based visual environment verification</li>
                 </ul>
-                <!-- Placeholder for A-2 demo -->
-                <div class="placeholder placeholder-small" style="margin-bottom: 1rem;">
-                  <i class="fas fa-image"></i>
-                  <span class="placeholder-hint">PLACEHOLDER: A-2 simulation screenshot</span>
-                </div>
                 <div class="agent-results">
                   <strong>Result:</strong> Code Runnability 87/100 &bull; 4 robot types &bull; 8 task categories
                 </div>
@@ -486,11 +438,6 @@
                   <li>Bi-arm coordination + multi-camera recording</li>
                   <li>Random seed placement for data diversity</li>
                 </ul>
-                <!-- Placeholder for A-3 demo -->
-                <div class="placeholder placeholder-small" style="margin-bottom: 1rem;">
-                  <i class="fas fa-image"></i>
-                  <span class="placeholder-hint">PLACEHOLDER: A-3 data collection demo (sim + real)</span>
-                </div>
                 <div class="agent-results">
                   <strong>Sim:</strong> 13 tasks, 57 GB, 78% success &bull;
                   <strong>Real:</strong> 14 tasks, 10 GB, 68&ndash;92% success
@@ -530,11 +477,6 @@
                   <li>Runtime Validity: env creation, physics stability, NaN/Inf</li>
                   <li>VLM visual scoring on front/top screenshots</li>
                 </ul>
-                <!-- Placeholder for A-4 demo -->
-                <div class="placeholder placeholder-small" style="margin-bottom: 1rem;">
-                  <i class="fas fa-image"></i>
-                  <span class="placeholder-hint">PLACEHOLDER: A-4 verification pipeline image</span>
-                </div>
                 <div class="agent-results">
                   <strong>Result:</strong> Static + visual dual verification with auto-correction feedback loop
                 </div>
@@ -573,11 +515,6 @@
                   <li>Trajectory/Joint/Cartesian command types + gripper control</li>
                   <li>Real-time 10Hz monitoring with VLM visual judgment</li>
                 </ul>
-                <!-- Placeholder for B-1 demo -->
-                <div class="placeholder placeholder-small" style="margin-bottom: 1rem;">
-                  <i class="fas fa-image"></i>
-                  <span class="placeholder-hint">PLACEHOLDER: B-1 multi-robot control demo</span>
-                </div>
                 <div class="agent-results">
                   <strong>Result:</strong> RoboCasa 16 tasks + LIBERO 10 tasks &bull; Franka & UR7e validated
                 </div>
@@ -615,11 +552,6 @@
                   <li>Task-specific adapter hot-swapping (&lt; 10ms)</li>
                   <li>3 VLA backend support (GR00T, SmolVLA, Pi0.5)</li>
                 </ul>
-                <!-- Placeholder for B-2 demo -->
-                <div class="placeholder placeholder-small" style="margin-bottom: 1rem;">
-                  <i class="fas fa-image"></i>
-                  <span class="placeholder-hint">PLACEHOLDER: B-2 VLA training results</span>
-                </div>
                 <div class="agent-results">
                   <strong>Result:</strong> LIBERO 73.5% &bull; RoboCasa 14.7% (+8.5%) &bull; 2h training on H100x4
                 </div>
@@ -632,62 +564,6 @@
     </div>
 
 
-<!-- ============================================================ -->
-<!--  7.5 DEVELOPMENT TIMELINE                                     -->
-<!-- ============================================================ -->
-    <div class="columns is-centered" style="margin-top: 2rem;">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Development Timeline</h2>
-        <table class="styled-table">
-          <thead>
-            <tr>
-              <th>Agent</th>
-              <th>Planned</th>
-              <th>Status</th>
-              <th>Key Achievement</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><b>[A-1]</b> Task Definition</td>
-              <td>Week 1&ndash;2</td>
-              <td>Complete</td>
-              <td>RAG + LLM 4-stage pipeline, 82 task YAML library</td>
-            </tr>
-            <tr>
-              <td><b>[A-2]</b> Sim Generation</td>
-              <td>Week 2&ndash;3</td>
-              <td>Complete</td>
-              <td>IsaacLab support for 4 robots, 8 task categories</td>
-            </tr>
-            <tr>
-              <td><b>[A-3]</b> Data Collection</td>
-              <td>Week 3&ndash;8</td>
-              <td>Complete</td>
-              <td>6-DOF IK, 3-tier validation, 67 GB data (sim + real)</td>
-            </tr>
-            <tr>
-              <td><b>[A-4]</b> Dual Verification</td>
-              <td>Week 1&ndash;4</td>
-              <td>Complete</td>
-              <td>Static code analysis + dynamic runtime + VLM visual verification</td>
-            </tr>
-            <tr>
-              <td><b>[B-1]</b> Robot Control</td>
-              <td>Week 1&ndash;4</td>
-              <td>Complete</td>
-              <td>Franka &amp; UR7e heterogeneous robot validation</td>
-            </tr>
-            <tr>
-              <td><b>[B-2]</b> VLA Fine-Tuning</td>
-              <td>Week 4&ndash;8</td>
-              <td>Complete</td>
-              <td>VLA training pipeline + LoRA fine-tuning code</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
 
 
 <!-- ============================================================ -->
@@ -853,18 +729,13 @@
         </div>
 
         <!-- Sub: Real-World Detail -->
-        <h4 class="title is-5" style="margin-top: 1.5rem;">Real-World Collection Detail [A-3]</h4>
-        <div class="content has-text-justified">
-          <p>
-            Real-world data was collected autonomously on three robot configurations:
-            <b>SO-101 single-arm</b> (7 tasks, 3.1 GB),
-            <b>SO-101 dual-arm</b> (3 tasks, 5.1 GB), and
-            <b>UR7e</b> (4 tasks, 1.4 GB).
-            The Forward-Reset loop enabled continuous collection without human intervention,
-            while random seed placement within workspace constraints ensured data diversity.
-            Task categories span grasping, arranging, stacking, insertion, assembly, and deformable object manipulation.
-          </p>
-        </div>
+        <h4 class="title is-5" style="margin-top: 1.5rem;">Real-World Collection [A-3]</h4>
+        <p class="is-size-6" style="margin-bottom: 1rem;">
+          <b>SO-101 single</b> (7 tasks, 3.1 GB) &bull;
+          <b>SO-101 dual</b> (3 tasks, 5.1 GB) &bull;
+          <b>UR7e</b> (4 tasks, 1.4 GB) &mdash;
+          fully autonomous Forward-Reset loop, no human intervention.
+        </p>
 
         <!-- AutoDataCollector pipeline demo video -->
         <div style="margin: 1.5rem 0;" data-aos="fade-up">
@@ -919,21 +790,21 @@
           </div>
           <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
             <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-              <source src="./assets/demos/sim_franka_colorsort.mp4" type="video/mp4">
+              <source src="./assets/demos/sim_franka_stacktray.mp4" type="video/mp4">
             </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Color Sorting</p>
+            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Tray Stacking</p>
           </div>
           <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
             <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-              <source src="./assets/demos/sim_franka_linearrange.mp4" type="video/mp4">
+              <source src="./assets/demos/sim_franka_multipick.mp4" type="video/mp4">
             </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Line Arrange</p>
+            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Multi Pick&amp;Place</p>
           </div>
           <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
             <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-              <source src="./assets/demos/sim_franka_drawer.mp4" type="video/mp4">
+              <source src="./assets/demos/sim_franka_bottle.mp4" type="video/mp4">
             </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Drawer Pick&amp;Place</p>
+            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Bottle Pick&amp;Place</p>
           </div>
         </div>
 
@@ -941,9 +812,9 @@
         <div class="columns is-multiline is-mobile" data-aos="fade-up">
           <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
             <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-              <source src="./assets/demos/so101_pick_place.mp4" type="video/mp4">
+              <source src="./assets/demos/so101_distribute_chocolate.mp4" type="video/mp4">
             </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Pick &amp; Place</p>
+            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Distribute to Plates</p>
           </div>
           <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
             <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
@@ -987,9 +858,9 @@
           </div>
           <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
             <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-              <source src="./assets/demos/so101_arrange_blocks.mp4" type="video/mp4">
+              <source src="./assets/demos/so101_precision_place.mp4" type="video/mp4">
             </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Block Arrangement</p>
+            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Precision Placement</p>
           </div>
         </div>
 
@@ -1035,66 +906,6 @@
     </div>
 
 
-<!-- ============================================================ -->
-<!--  8.5 COMPARISON TABLE                                         -->
-<!-- ============================================================ -->
-    <div class="columns is-centered" style="margin-top: 2rem;">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Comparison with Conventional Approaches</h2>
-        <div class="content has-text-justified">
-          <p>
-            RAPIDS replaces manual, fragmented workflows with an integrated autonomous pipeline.
-            The following table summarizes the key differences across each stage of the robot learning lifecycle.
-          </p>
-        </div>
-        <table class="styled-table">
-          <thead>
-            <tr>
-              <th>Aspect</th>
-              <th>Conventional</th>
-              <th>RAPIDS</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Task Definition</td>
-              <td>Manual reward/env code &mdash; days to weeks per task</td>
-              <td><b>[A-1]</b> NL &rarr; RAG + LLM &rarr; YAML in minutes</td>
-            </tr>
-            <tr>
-              <td>Sim Environment</td>
-              <td>Hand-authored env code, manual Domain Randomization</td>
-              <td><b>[A-2]</b> Auto-generated IsaacLab code, self-refinement (5 retries), auto DR, VLM visual check</td>
-            </tr>
-            <tr>
-              <td>Data Collection</td>
-              <td>Teleoperation: 10&ndash;20 ep/hr, requires expert operator</td>
-              <td><b>[A-3]</b> Code-based autonomous collection, 6-DOF IK + 3-tier validation. Sim: 13 tasks (57 GB), Real: 14 tasks (10 GB)</td>
-            </tr>
-            <tr>
-              <td>Quality Assurance</td>
-              <td>Post-hoc manual review or none &mdash; errors propagate</td>
-              <td><b>[A-4]</b> Pre (AST static analysis) + Post (VLM visual scoring) dual verification with auto-correction loop</td>
-            </tr>
-            <tr>
-              <td>Robot Control</td>
-              <td>Per-robot bespoke code, full rewrite on platform change</td>
-              <td><b>[B-1]</b> 5-stage hierarchical pipeline, ROS2 plugin adapters, LoRA adapter swap &lt; 10ms</td>
-            </tr>
-            <tr>
-              <td>VLA Fine-Tuning</td>
-              <td>Manual data curation and training setup</td>
-              <td><b>[B-2]</b> LoRA adapter fine-tuning pipeline with LeRobot v3.0 preprocessing</td>
-            </tr>
-            <tr>
-              <td>Extensibility</td>
-              <td>New task/robot requires full pipeline rewrite</td>
-              <td>Add a YAML spec or robot_profiles/*.yaml &mdash; LLM/VLM multi-backend swappable</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
 
 
 <!-- ============================================================ -->
@@ -1133,12 +944,6 @@
           </div>
         </div>
 
-        <!-- Hardware photo placeholder -->
-        <div class="placeholder placeholder-medium" style="margin-top: 1.5rem;">
-          <i class="fas fa-camera-retro"></i>
-          <span class="placeholder-label">Hardware Setup Photo</span>
-          <span class="placeholder-hint">PLACEHOLDER: Lab photo showing robot arms, cameras, and compute setup</span>
-        </div>
 
         <!-- AI Models Used -->
         <h4 class="title is-5" style="margin-top: 2rem;">AI Models &amp; Tools</h4>
