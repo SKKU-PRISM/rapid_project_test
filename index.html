@@ -414,11 +414,11 @@
             <div><h4>Task Definition <span class="agent-id">[A-1]</span></h4></div>
           </div>
           <div class="agent-body">
-            <p class="agent-purpose">NL &rarr; YAML task spec via RAG + LLM (82 indexed tasks)</p>
-            <div class="agent-meta">
-              <span class="meta-tag">GPT-5</span><span class="meta-tag">RAG</span><span class="meta-tag">MiniLM-L6</span>
+            <div class="agent-io-grid">
+              <div class="io-block io-in"><span class="io-label">Input</span><span class="io-text">Natural language task description</span></div>
+              <div class="io-block io-proc"><span class="io-label">Process</span><span class="io-text">RAG search (82 tasks) + LLM parsing</span></div>
+              <div class="io-block io-out"><span class="io-label">Output</span><span class="io-text">YAML task specification</span></div>
             </div>
-            <div class="agent-results"><strong>82</strong> task specs &bull; <strong>8</strong> categories &bull; <strong>4</strong> robot types</div>
           </div>
         </div>
       </div>
@@ -431,11 +431,11 @@
             <div><h4>Sim Generation <span class="agent-id">[A-2]</span></h4></div>
           </div>
           <div class="agent-body">
-            <p class="agent-purpose">YAML &rarr; IsaacLab env code with self-refinement &amp; Domain Randomization</p>
-            <div class="agent-meta">
-              <span class="meta-tag">GPT-5</span><span class="meta-tag">Gemini</span><span class="meta-tag">IsaacLab</span>
+            <div class="agent-io-grid">
+              <div class="io-block io-in"><span class="io-label">Input</span><span class="io-text">YAML task spec</span></div>
+              <div class="io-block io-proc"><span class="io-label">Process</span><span class="io-text">LLM code gen + self-refinement (5x) + VLM check</span></div>
+              <div class="io-block io-out"><span class="io-label">Output</span><span class="io-text">IsaacLab environment code</span></div>
             </div>
-            <div class="agent-results"><strong>87/100</strong> runnability &bull; <strong>5</strong> auto-retries &bull; VLM visual check</div>
           </div>
         </div>
       </div>
@@ -481,11 +481,11 @@
             <div><h4>Data Collection <span class="agent-id">[A-3]</span></h4></div>
           </div>
           <div class="agent-body">
-            <p class="agent-purpose">LLM-generated Code-as-Policies with 6-DOF IK (Pinocchio) &amp; Forward-Reset loop</p>
-            <div class="agent-meta">
-              <span class="meta-tag">Gemini 3.1 Flash</span><span class="meta-tag">Pinocchio IK</span><span class="meta-tag">LeRobot v3.0</span>
+            <div class="agent-io-grid">
+              <div class="io-block io-in"><span class="io-label">Input</span><span class="io-text">Task instruction + environment + skills</span></div>
+              <div class="io-block io-proc"><span class="io-label">Process</span><span class="io-text">Code-as-Policies + 6-DOF IK + Forward-Reset</span></div>
+              <div class="io-block io-out"><span class="io-label">Output</span><span class="io-text">LeRobot v3.0 dataset</span></div>
             </div>
-            <div class="agent-results"><strong>Sim:</strong> 13 tasks, 57 GB, 78% &bull; <strong>Real:</strong> 14 tasks, 10 GB</div>
           </div>
         </div>
       </div>
@@ -496,11 +496,11 @@
             <div><h4>Pre &amp; Post Validator <span class="agent-id">[A-4]</span></h4></div>
           </div>
           <div class="agent-body">
-            <p class="agent-purpose">Pre: AST static code analysis &bull; Post: VLM visual scoring &rarr; 100-point quality gate</p>
-            <div class="agent-meta">
-              <span class="meta-tag">AST</span><span class="meta-tag">VLM</span><span class="meta-tag">GPT-5</span>
+            <div class="agent-io-grid">
+              <div class="io-block io-in"><span class="io-label">Input</span><span class="io-text">Generated code + YAML spec</span></div>
+              <div class="io-block io-proc"><span class="io-label">Process</span><span class="io-text">AST static analysis + VLM visual scoring</span></div>
+              <div class="io-block io-out"><span class="io-label">Output</span><span class="io-text">100-point score + feedback</span></div>
             </div>
-            <div class="agent-results">Sim Code Quality: <strong>SF</strong> 33/40 &bull; <strong>MDP</strong> 14/20 &bull; <strong>TA</strong> 9/15 &bull; <strong>RV</strong> 17/25</div>
           </div>
         </div>
       </div>
@@ -665,11 +665,11 @@
             <div><h4>Robot Control <span class="agent-id">[B-1]</span></h4></div>
           </div>
           <div class="agent-body">
-            <p class="agent-purpose">5-stage hierarchical pipeline: Perception &rarr; Planner &rarr; Controller &rarr; Robot &rarr; Monitor</p>
-            <div class="agent-meta">
-              <span class="meta-tag">GR00T N1.5</span><span class="meta-tag">ROS2</span><span class="meta-tag">LangChain</span>
+            <div class="agent-io-grid">
+              <div class="io-block io-in"><span class="io-label">Input</span><span class="io-text">NL command + RGB/RGBD image</span></div>
+              <div class="io-block io-proc"><span class="io-label">Process</span><span class="io-text">Perception &rarr; Planner &rarr; Controller &rarr; Monitor</span></div>
+              <div class="io-block io-out"><span class="io-label">Output</span><span class="io-text">Robot trajectory / joint commands</span></div>
             </div>
-            <div class="agent-results">RoboCasa <strong>16</strong> tasks &bull; LIBERO <strong>10</strong> tasks &bull; Franka &amp; UR7e</div>
           </div>
         </div>
       </div>
@@ -682,11 +682,11 @@
             <div><h4>VLA Fine-Tuning <span class="agent-id">[B-2]</span></h4></div>
           </div>
           <div class="agent-body">
-            <p class="agent-purpose">LoRA adapter fine-tuning with task-specific hot-swap (&lt; 10ms)</p>
-            <div class="agent-meta">
-              <span class="meta-tag">GR00T N1.5</span><span class="meta-tag">Pi0.5</span><span class="meta-tag">LoRA</span>
+            <div class="agent-io-grid">
+              <div class="io-block io-in"><span class="io-label">Input</span><span class="io-text">Demo data + pre-trained VLA</span></div>
+              <div class="io-block io-proc"><span class="io-label">Process</span><span class="io-text">LoRA adapter fine-tuning + preprocessing</span></div>
+              <div class="io-block io-out"><span class="io-label">Output</span><span class="io-text">Task-specific VLA model</span></div>
             </div>
-            <div class="agent-results">LIBERO <strong>73.5%</strong> &bull; RoboCasa <strong>14.7%</strong> (+8.5%) &bull; 2h on H100x4</div>
           </div>
         </div>
       </div>
