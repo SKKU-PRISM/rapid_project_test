@@ -192,6 +192,7 @@ html {
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07);
   overflow: hidden;
   height: 100%;
+  min-height: 180px;
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -705,6 +706,7 @@ html {
   gap: 0.5rem;
   margin-top: 0.5rem;
   align-items: stretch;
+  min-height: 100px;
 }
 
 .io-block {
@@ -718,7 +720,13 @@ html {
 
 .io-block .io-label {
   flex-shrink: 0;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.3rem;
 }
+
+.io-in .io-label { border-bottom: 1.5px solid rgba(50, 115, 220, 0.25); }
+.io-proc .io-label { border-bottom: 1.5px solid rgba(132, 94, 247, 0.25); }
+.io-out .io-label { border-bottom: 1.5px solid rgba(46, 204, 113, 0.25); }
 
 .io-block .io-list {
   flex: 1;
@@ -737,7 +745,6 @@ html {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-bottom: 0.25rem;
 }
 
 .io-in .io-label { color: #3273dc; }
@@ -768,7 +775,7 @@ html {
 }
 
 @media screen and (max-width: 768px) {
-  .agent-io-grid { flex-direction: column; gap: 0.3rem; }
+  .agent-io-grid { flex-direction: column; gap: 0.3rem; min-height: auto; }
 }
 
 /* ===== Agent card images ===== */
