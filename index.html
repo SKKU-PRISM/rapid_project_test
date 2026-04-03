@@ -42,11 +42,11 @@
     </div>
     <div id="navMenu" class="navbar-menu">
       <div class="navbar-end">
-        <a class="navbar-item" href="#abstract">Abstract</a>
-        <a class="navbar-item" href="#system">System</a>
-        <a class="navbar-item" href="#agents">Agents</a>
+        <a class="navbar-item" href="#pipeline">Pipeline</a>
+        <a class="navbar-item" href="#simulation">Simulation</a>
+        <a class="navbar-item" href="#collection">Collection</a>
+        <a class="navbar-item" href="#robot">Robot</a>
         <a class="navbar-item" href="#results">Results</a>
-        <a class="navbar-item" href="#opensource">Open Source</a>
         <a class="navbar-item" href="#team">Team</a>
       </div>
     </div>
@@ -134,7 +134,7 @@
 
 
 <!-- ============================================================ -->
-<!--  2. ABSTRACT                                                  -->
+<!--  2. ABSTRACT + DEMO + KEY NUMBERS — white                     -->
 <!-- ============================================================ -->
 <section class="section">
   <div class="container is-max-desktop">
@@ -156,10 +156,7 @@
       </div>
     </div>
 
-
-<!-- ============================================================ -->
-<!--  3. DEMO                                                      -->
-<!-- ============================================================ -->
+    <!-- Demo Video -->
     <div class="columns is-centered" style="margin-top: 1.5rem;">
       <div class="column is-four-fifths">
         <div class="has-text-centered">
@@ -176,10 +173,7 @@
       </div>
     </div>
 
-
-<!-- ============================================================ -->
-<!--  4. KEY NUMBERS                                               -->
-<!-- ============================================================ -->
+    <!-- Key Numbers -->
     <div class="columns is-centered" style="margin-top: 1rem;">
       <div class="column is-12">
         <div class="columns is-mobile is-multiline has-text-centered" data-aos="fade-up">
@@ -222,14 +216,18 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
 
 
 <!-- ============================================================ -->
-<!--  5. SYSTEM OVERVIEW                                           -->
+<!--  3. PIPELINE OVERVIEW — light purple                          -->
 <!-- ============================================================ -->
+<section class="section bg-purple" id="pipeline">
+  <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3" id="system">System Overview</h2>
+        <h2 class="title is-3" data-aos="fade-up">System Overview</h2>
         <div class="content has-text-justified">
           <p>
             RAPIDS consists of 6 specialized agents orchestrated in an end-to-end pipeline.
@@ -260,10 +258,7 @@
       </div>
     </div>
 
-
-<!-- ============================================================ -->
-<!--  6. KEY DIFFERENTIATORS                                       -->
-<!-- ============================================================ -->
+    <!-- Key Differentiators -->
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3" data-aos="fade-up">Key Differentiators</h2>
@@ -293,557 +288,583 @@
         </div>
       </div>
     </div>
-
-
-<!-- ============================================================ -->
-<!--  7. AGENT DETAILS                                             -->
-<!-- ============================================================ -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3" id="agents">Agents</h2>
-        <div class="columns is-multiline" style="margin-top: 1rem;">
-
-          <!-- A-1 -->
-          <div class="column is-6" data-aos="fade-up" data-aos-delay="0">
-            <div class="agent-detail">
-              <div class="agent-header agent-header-a1">
-                <i class="fas fa-comment-dots"></i>
-                <div><h4>Task Definition <span class="agent-id">[A-1]</span></h4></div>
-              </div>
-              <div class="agent-body">
-                <p class="agent-purpose">NL &rarr; YAML task spec via RAG + LLM (82 indexed tasks)</p>
-                <div class="agent-meta">
-                  <span class="meta-tag">GPT-5</span><span class="meta-tag">RAG</span><span class="meta-tag">MiniLM-L6</span>
-                </div>
-                <div class="agent-results"><strong>82</strong> task specs &bull; <strong>8</strong> categories &bull; <strong>4</strong> robot types</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- A-2 -->
-          <div class="column is-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="agent-detail">
-              <div class="agent-header agent-header-a2">
-                <i class="fas fa-cube"></i>
-                <div><h4>Sim Generation <span class="agent-id">[A-2]</span></h4></div>
-              </div>
-              <div class="agent-body">
-                <p class="agent-purpose">YAML &rarr; IsaacLab env code with self-refinement &amp; Domain Randomization</p>
-                <div class="agent-meta">
-                  <span class="meta-tag">GPT-5</span><span class="meta-tag">Gemini</span><span class="meta-tag">IsaacLab</span>
-                </div>
-                <div class="agent-results"><strong>87/100</strong> runnability &bull; <strong>5</strong> auto-retries &bull; VLM visual check</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- A-3 -->
-          <div class="column is-6" data-aos="fade-up" data-aos-delay="0">
-            <div class="agent-detail">
-              <div class="agent-header agent-header-a3">
-                <i class="fas fa-database"></i>
-                <div><h4>Data Collection <span class="agent-id">[A-3]</span></h4></div>
-              </div>
-              <div class="agent-body">
-                <p class="agent-purpose">Code-as-Policies data collection with 6-DOF IK &amp; Forward-Reset loop (sim + real)</p>
-                <div class="agent-meta">
-                  <span class="meta-tag">Gemini</span><span class="meta-tag">Pinocchio IK</span><span class="meta-tag">LeRobot v3.0</span>
-                </div>
-                <div class="agent-results"><strong>Sim:</strong> 13 tasks, 57 GB, 78% &bull; <strong>Real:</strong> 14 tasks, 10 GB</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- A-4 -->
-          <div class="column is-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="agent-detail">
-              <div class="agent-header agent-header-a4">
-                <i class="fas fa-shield-alt"></i>
-                <div><h4>Dual Validator <span class="agent-id">[A-4]</span></h4></div>
-              </div>
-              <div class="agent-body">
-                <p class="agent-purpose">Pre (AST static analysis) + Post (VLM visual scoring) &rarr; 100-point quality gate</p>
-                <div class="agent-meta">
-                  <span class="meta-tag">AST</span><span class="meta-tag">VLM</span><span class="meta-tag">GPT-5</span>
-                </div>
-                <div class="agent-results"><strong>SF</strong> 33/40 &bull; <strong>MDP</strong> 14/20 &bull; <strong>TA</strong> 9/15 &bull; <strong>RV</strong> 17/25</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- B-1 -->
-          <div class="column is-6" data-aos="fade-up" data-aos-delay="0">
-            <div class="agent-detail">
-              <div class="agent-header agent-header-b1">
-                <i class="fas fa-robot"></i>
-                <div><h4>Robot Control <span class="agent-id">[B-1]</span></h4></div>
-              </div>
-              <div class="agent-body">
-                <p class="agent-purpose">5-stage hierarchical pipeline: Perception &rarr; Planner &rarr; Controller &rarr; Robot &rarr; Monitor</p>
-                <div class="agent-meta">
-                  <span class="meta-tag">GR00T N1.5</span><span class="meta-tag">ROS2</span><span class="meta-tag">LangChain</span>
-                </div>
-                <div class="agent-results">RoboCasa <strong>16</strong> tasks &bull; LIBERO <strong>10</strong> tasks &bull; Franka &amp; UR7e</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- B-2 -->
-          <div class="column is-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="agent-detail">
-              <div class="agent-header agent-header-b2">
-                <i class="fas fa-brain"></i>
-                <div><h4>VLA Fine-Tuning <span class="agent-id">[B-2]</span></h4></div>
-              </div>
-              <div class="agent-body">
-                <p class="agent-purpose">LoRA adapter fine-tuning with task-specific hot-swap (&lt; 10ms)</p>
-                <div class="agent-meta">
-                  <span class="meta-tag">GR00T N1.5</span><span class="meta-tag">Pi0.5</span><span class="meta-tag">LoRA</span>
-                </div>
-                <div class="agent-results">LIBERO <strong>73.5%</strong> &bull; RoboCasa <strong>14.7%</strong> (+8.5%) &bull; 2h on H100x4</div>
-              </div>
-            </div>
-          </div>
-
-        </div><!-- /columns -->
-      </div>
-    </div>
-
-
-
-
-<!-- ============================================================ -->
-<!--  8. RESULTS                                                   -->
-<!-- ============================================================ -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3" id="results">Results</h2>
-
-        <!-- Sub: Environment Generation (A-1, A-2) -->
-        <h4 class="title is-5" style="margin-top: 1.5rem;">Environment Generation [A-1, A-2]</h4>
-        <div class="columns is-multiline is-mobile">
-          <div class="column is-4-desktop is-6-mobile">
-            <div class="result-metric">
-              <span class="metric-value" style="color: #3273dc;">87 / 100</span>
-              <span class="metric-label">Code Runnability</span>
-              <span class="metric-detail">GPT-5-mini, 16 trials</span>
-            </div>
-          </div>
-          <div class="column is-4-desktop is-6-mobile">
-            <div class="result-metric">
-              <span class="metric-value" style="color: #3273dc;">1.8</span>
-              <span class="metric-label">Avg. Code Gen Attempts</span>
-              <span class="metric-detail">Self-refinement loop</span>
-            </div>
-          </div>
-          <div class="column is-4-desktop is-6-mobile">
-            <div class="result-metric">
-              <span class="metric-value" style="color: #3273dc;">4</span>
-              <span class="metric-label">Robot Types Supported</span>
-              <span class="metric-detail">Franka, UR10e, OpenARM, SO-101</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Generated IsaacLab Environment Screenshots -->
-        <div class="columns is-multiline is-mobile" data-aos="fade-up" style="margin-top: 1rem;">
-          <div class="column is-3-desktop is-6-mobile" style="padding: 0.3rem;">
-            <img src="./assets/sim_screenshots/stacktray.png" alt="StackTray environment" style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-            <p class="has-text-grey is-size-7 has-text-centered">Stack in Tray</p>
-          </div>
-          <div class="column is-3-desktop is-6-mobile" style="padding: 0.3rem;">
-            <img src="./assets/sim_screenshots/colorsort.png" alt="ColorSort environment" style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-            <p class="has-text-grey is-size-7 has-text-centered">Color Sort</p>
-          </div>
-          <div class="column is-3-desktop is-6-mobile" style="padding: 0.3rem;">
-            <img src="./assets/sim_screenshots/multipick.png" alt="MultiPickPlace environment" style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-            <p class="has-text-grey is-size-7 has-text-centered">Multi Pick&amp;Place</p>
-          </div>
-          <div class="column is-3-desktop is-6-mobile" style="padding: 0.3rem;">
-            <img src="./assets/sim_screenshots/drawer.png" alt="Drawer environment" style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-            <p class="has-text-grey is-size-7 has-text-centered">Drawer Pick&amp;Place</p>
-          </div>
-        </div>
-
-        <!-- Sub: Data Collection (A-3) -->
-        <h4 class="title is-5" style="margin-top: 1.5rem;">Data Collection [A-3]</h4>
-        <div class="columns is-multiline">
-          <div class="column is-6">
-            <h6 class="title is-6" style="margin-bottom: 0.5rem;">Simulation</h6>
-            <table class="styled-table">
-              <tbody>
-                <tr><td>Tasks completed</td><td><b>13</b> (franka30_production batch)</td></tr>
-                <tr><td>Total raw data</td><td><b>57 GB</b> (LeRobot v3.0)</td></tr>
-                <tr><td>Episode success rate</td><td><b>78%</b> (401/514)</td></tr>
-                <tr><td>Avg. episodes / task</td><td>30.8</td></tr>
-                <tr><td>Avg. episode length</td><td>628 steps (min 366, max 1,416)</td></tr>
-                <tr><td>Batch time</td><td>72 hrs (48h collection + 24h failures)</td></tr>
-                <tr><td>Task categories</td><td>8 (Stack, Lift, Pick&amp;Place, Sort, Cabinet, Assembly, Peg Insert, Reach)</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="column is-6">
-            <h6 class="title is-6" style="margin-bottom: 0.5rem;">Real-World</h6>
-            <table class="styled-table">
-              <tbody>
-                <tr><td>Tasks (single / dual / UR7e)</td><td><b>7 / 3 / 4</b></td></tr>
-                <tr><td>Total raw data</td><td><b>3.1 / 5.1 / 1.4 GB</b></td></tr>
-                <tr><td>Episode success rate</td><td><b>68% / 71% / 92%</b></td></tr>
-                <tr><td>Avg. episodes / task</td><td>33.2 / 30.3 / 34</td></tr>
-                <tr><td>Avg. episode length</td><td>844 / 1,450 / 1,472 steps</td></tr>
-                <tr><td>Batch time</td><td>5.1 / 4.9 / 5.5 hours</td></tr>
-                <tr><td>Task categories</td><td>Grasping, arrange, stack, insertion, assembly, deformable</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Sub: VLA Learning (B-1, B-2) -->
-        <h4 class="title is-5" style="margin-top: 1.5rem;">VLA Learning &amp; Robot Control [B-1, B-2]</h4>
-        <div class="columns is-multiline is-mobile">
-          <div class="column is-3-desktop is-6-mobile">
-            <div class="result-metric">
-              <span class="metric-value" style="color: #845ef7;">73.5%</span>
-              <span class="metric-label">LIBERO Success Rate</span>
-              <span class="metric-detail">+1.1% vs. baseline</span>
-            </div>
-          </div>
-          <div class="column is-3-desktop is-6-mobile">
-            <div class="result-metric">
-              <span class="metric-value" style="color: #845ef7;">14.7%</span>
-              <span class="metric-label">RoboCasa Success Rate</span>
-              <span class="metric-detail">+8.5% vs. baseline</span>
-            </div>
-          </div>
-          <div class="column is-3-desktop is-6-mobile">
-            <div class="result-metric">
-              <span class="metric-value" style="color: #845ef7;">&lt; 10ms</span>
-              <span class="metric-label">LoRA Adapter Swap</span>
-              <span class="metric-detail">Task-specific switching</span>
-            </div>
-          </div>
-          <div class="column is-3-desktop is-6-mobile">
-            <div class="result-metric">
-              <span class="metric-value" style="color: #845ef7;">2h</span>
-              <span class="metric-label">Fine-tuning Time</span>
-              <span class="metric-detail">H100 x 4 GPUs</span>
-            </div>
-          </div>
-        </div>
-        <div class="columns is-multiline is-mobile">
-          <div class="column is-3-desktop is-6-mobile">
-            <div class="result-metric">
-              <span class="metric-value" style="color: #845ef7;">10&ndash;50 Hz</span>
-              <span class="metric-label">Robot State Feedback</span>
-              <span class="metric-detail">RobotStateData rate</span>
-            </div>
-          </div>
-          <div class="column is-3-desktop is-6-mobile">
-            <div class="result-metric">
-              <span class="metric-value" style="color: #845ef7;">10 Hz</span>
-              <span class="metric-label">Monitor Frequency</span>
-              <span class="metric-detail">VLM visual judgment</span>
-            </div>
-          </div>
-          <div class="column is-3-desktop is-6-mobile">
-            <div class="result-metric">
-              <span class="metric-value" style="color: #845ef7;">3</span>
-              <span class="metric-label">VLA Backends</span>
-              <span class="metric-detail">GR00T N1.5, SmolVLA, Pi0.5</span>
-            </div>
-          </div>
-          <div class="column is-3-desktop is-6-mobile">
-            <div class="result-metric">
-              <span class="metric-value" style="color: #845ef7;">7</span>
-              <span class="metric-label">Training Datasets</span>
-              <span class="metric-detail">Avg. 32.5 episodes, 410 steps</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sub: Real-World Detail -->
-        <h4 class="title is-5" style="margin-top: 1.5rem;">Real-World Collection [A-3]</h4>
-        <p class="is-size-6" style="margin-bottom: 1rem;">
-          <b>SO-101 single</b> (7 tasks, 3.1 GB) &bull;
-          <b>SO-101 dual</b> (3 tasks, 5.1 GB) &bull;
-          <b>UR7e</b> (4 tasks, 1.4 GB) &mdash;
-          fully autonomous Forward-Reset loop, no human intervention.
-        </p>
-
-        <!-- AutoDataCollector pipeline demo video -->
-        <div style="margin: 1.5rem 0;" data-aos="fade-up">
-          <video autoplay muted playsinline loop
-                 style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-            <source src="./assets/adc_data_collection.mp4" type="video/mp4">
-          </video>
-          <p class="has-text-grey is-size-7 has-text-centered" style="margin-top: 0.5rem;">
-            AutoDataCollector: autonomous Forward-Reset data collection on SO-101 &amp; UR7e
-          </p>
-        </div>
-
-        <!-- ADC VLM Pipeline Visualization — compact horizontal -->
-        <h5 class="title is-6" style="margin-top: 1.5rem;">VLM-Driven Autonomous Pipeline</h5>
-        <div class="vlm-pipeline" data-aos="fade-up">
-          <div class="vlm-step">
-            <img src="./static/images/results/initial_state.jpg" alt="Scene">
-            <span class="vlm-label">Scene</span>
-          </div>
-          <span class="vlm-arrow"><i class="fas fa-chevron-right"></i></span>
-          <div class="vlm-step">
-            <img src="./static/images/results/turn1_detection.jpg" alt="Detect">
-            <span class="vlm-label">Detect</span>
-          </div>
-          <span class="vlm-arrow"><i class="fas fa-chevron-right"></i></span>
-          <div class="vlm-step">
-            <img src="./static/images/results/turn2_grasp_points.jpg" alt="Grasp">
-            <span class="vlm-label">Grasp Plan</span>
-          </div>
-          <span class="vlm-arrow"><i class="fas fa-chevron-right"></i></span>
-          <div class="vlm-step">
-            <img src="./static/images/results/workspace_left_arm.jpg" alt="Workspace">
-            <span class="vlm-label">Workspace</span>
-          </div>
-          <span class="vlm-arrow"><i class="fas fa-chevron-right"></i></span>
-          <div class="vlm-step">
-            <img src="./static/images/results/final_state.jpg" alt="Complete">
-            <span class="vlm-label">Complete</span>
-          </div>
-        </div>
-
-        <!-- Demo Gallery 4x3 -->
-        <h4 class="title is-5" style="margin-top: 2.5rem;">Demo Gallery</h4>
-
-        <h6 class="title is-6 has-text-grey" style="margin-bottom: 0.5rem;">Simulation (IsaacLab) &mdash; [A-2]</h6>
-        <div class="columns is-multiline is-mobile" data-aos="fade-up">
-          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
-            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-              <source src="./assets/demos/sim_franka_stack.mp4" type="video/mp4">
-            </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Stacking</p>
-          </div>
-          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
-            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-              <source src="./assets/demos/sim_franka_stacktray.mp4" type="video/mp4">
-            </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Tray Stacking</p>
-          </div>
-          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
-            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-              <source src="./assets/demos/sim_franka_multipick.mp4" type="video/mp4">
-            </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Multi Pick&amp;Place</p>
-          </div>
-          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
-            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-              <source src="./assets/demos/sim_franka_can.mp4" type="video/mp4">
-            </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Can Pick&amp;Place</p>
-          </div>
-        </div>
-
-        <h6 class="title is-6 has-text-grey" style="margin-bottom: 0.5rem;">Real-World: SO-101 &mdash; [A-3]</h6>
-        <div class="columns is-multiline is-mobile" data-aos="fade-up">
-          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
-            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-              <source src="./assets/demos/so101_distribute_chocolate.mp4" type="video/mp4">
-            </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Distribute to Plates</p>
-          </div>
-          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
-            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-              <source src="./assets/demos/so101_stack_blocks.mp4" type="video/mp4">
-            </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">3-Block Stacking</p>
-          </div>
-          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
-            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-              <source src="./assets/demos/dual_move_block.mp4" type="video/mp4">
-            </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Dual: Block Transfer</p>
-          </div>
-          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
-            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-              <source src="./assets/demos/dual_towel_folding.mp4" type="video/mp4">
-            </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Dual: Towel Folding</p>
-          </div>
-        </div>
-
-        <h6 class="title is-6 has-text-grey" style="margin-bottom: 0.5rem;">Real-World: UR7e &amp; More &mdash; [A-3]</h6>
-        <div class="columns is-multiline is-mobile" data-aos="fade-up">
-          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
-            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-              <source src="./assets/demos/ur7e_assemble_battery.mp4" type="video/mp4">
-            </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Battery Assembly</p>
-          </div>
-          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
-            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-              <source src="./assets/demos/ur7e_nut_bolt.mp4" type="video/mp4">
-            </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Nut &amp; Bolt Assembly</p>
-          </div>
-          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
-            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-              <source src="./assets/demos/ur7e_makeup_marker.mp4" type="video/mp4">
-            </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Precision Marker</p>
-          </div>
-          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
-            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-              <source src="./assets/demos/so101_precision_place.mp4" type="video/mp4">
-            </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Precision Placement</p>
-          </div>
-        </div>
-
-        <!-- Sub: System Efficiency -->
-        <h4 class="title is-5" style="margin-top: 1.5rem;">System Efficiency</h4>
-        <table class="styled-table">
-          <thead>
-            <tr>
-              <th>Metric</th>
-              <th>Conventional</th>
-              <th>RAPIDS</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Task definition time</td>
-              <td>Days ~ weeks (manual reward/env code)</td>
-              <td><b>1 min</b> (NL &rarr; YAML)</td>
-            </tr>
-            <tr>
-              <td>Environment setup time</td>
-              <td>1&ndash;2 weeks (manual sim authoring)</td>
-              <td><b>9 min</b> (LLM generation + self-refinement)</td>
-            </tr>
-            <tr>
-              <td>Data collection throughput</td>
-              <td>10&ndash;20 episodes/hr (teleop)</td>
-              <td><b>~8.5 episodes/hr</b> (fully autonomous)</td>
-            </tr>
-            <tr>
-              <td>Full pipeline (new task)</td>
-              <td>4&ndash;8 weeks</td>
-              <td><b>17 minutes</b></td>
-            </tr>
-            <tr>
-              <td>Cost per episode</td>
-              <td>$10&ndash;50 (operator labor)</td>
-              <td><b>~$0.1</b> (API cost only)</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-
-
-
-<!-- ============================================================ -->
-<!--  9. HARDWARE & SOFTWARE                                       -->
-<!-- ============================================================ -->
-    <div class="columns is-centered" style="margin-top: 2rem;">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Hardware &amp; Software</h2>
-
-        <div class="columns">
-          <div class="column is-6">
-            <h4 class="title is-5">Hardware</h4>
-            <table class="styled-table">
-              <tbody>
-                <tr><td><i class="fas fa-server"></i>&ensp;GPU Server</td><td>NVIDIA H100 80GB x 4</td></tr>
-                <tr><td><i class="fas fa-desktop"></i>&ensp;GPU Workstation</td><td>RTX 5090 / RTX 3090</td></tr>
-                <tr><td><i class="fas fa-robot"></i>&ensp;SO-101 Arms</td><td>5+1 DOF x 2 units</td></tr>
-                <tr><td><i class="fas fa-robot"></i>&ensp;UR7e Arm</td><td>6+1 DOF x 1 unit</td></tr>
-                <tr><td><i class="fas fa-camera"></i>&ensp;Cameras</td><td>Intel RealSense D435 x 1</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="column is-6">
-            <h4 class="title is-5">Software</h4>
-            <table class="styled-table">
-              <tbody>
-                <tr><td>OS</td><td>Ubuntu 22.04 LTS</td></tr>
-                <tr><td>Simulator</td><td>Isaac Sim 5.1.0 + IsaacLab v2.3.2</td></tr>
-                <tr><td>Robot Framework</td><td>ROS2 Humble</td></tr>
-                <tr><td>CUDA / Python</td><td>CUDA 12.1 / Python 3.11</td></tr>
-                <tr><td>ML Framework</td><td>PyTorch 2.7.0 + torchvision 0.22.0</td></tr>
-                <tr><td>Data Format</td><td>LeRobot v3.0 (OXE compatible)</td></tr>
-                <tr><td>Container</td><td>Docker (nvidia/cuda:12.1.0-cudnn8-devel-ubuntu22.04)</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Robot Build Video -->
-        <div style="margin-top: 1.5rem;" data-aos="fade-up">
-          <video autoplay muted playsinline loop
-                 style="width: 100%; max-width: 600px; display: block; margin: 0 auto; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
-            <source src="./assets/robot_3dprint.mp4" type="video/mp4">
-          </video>
-          <p class="has-text-grey is-size-7 has-text-centered" style="margin-top: 0.5rem;">SO-101 robot arm: 3D printing &amp; assembly</p>
-        </div>
-
-      </div>
-    </div>
-
-
-<!-- ============================================================ -->
-<!--  10. OPEN SOURCE & DATA                                       -->
-<!-- ============================================================ -->
-    <div class="columns is-centered" style="margin-top: 2rem;">
-      <div class="column is-full-width">
-        <h2 class="title is-3" id="opensource">Open Source &amp; Data</h2>
-
-        <div class="columns is-multiline" style="margin-top: 1rem;">
-          <div class="column is-6">
-            <a href="https://github.com/SKKU-PRISM/Simulation-Generation-Agent" class="repo-card" style="text-decoration:none; color:inherit;">
-              <i class="fab fa-github"></i>
-              <div class="repo-info">
-                <h5>Simulation-Generation-Agent</h5>
-                <p>A-1 Task Spec + A-2 Sim Generation + A-3 Sim Collection + A-4 Evaluator<br>214 files &bull; 62,582 LOC</p>
-              </div>
-            </a>
-          </div>
-          <div class="column is-6">
-            <a href="https://github.com/SKKU-PRISM/AutoDataCollector" class="repo-card" style="text-decoration:none; color:inherit;">
-              <i class="fab fa-github"></i>
-              <div class="repo-info">
-                <h5>AutoDataCollector</h5>
-                <p>A-3 Real-World Data Collection Pipeline<br>139 files &bull; 40,782 LOC &bull; Forward-Reset loop, multi-arm, skill recording</p>
-              </div>
-            </a>
-          </div>
-          <div class="column is-6">
-            <a href="https://github.com/SKKU-PRISM/robobridge" class="repo-card" style="text-decoration:none; color:inherit;">
-              <i class="fab fa-github"></i>
-              <div class="repo-info">
-                <h5>RoboBridge</h5>
-                <p>B-1 Robot Control + B-2 VLA Training<br>165 files &bull; 39,317 LOC &bull; Perception, Planner, Controller, Robot, Monitor</p>
-              </div>
-            </a>
-          </div>
-          <div class="column is-6">
-            <a href="https://huggingface.co/skkuprism" class="repo-card" style="text-decoration:none; color:inherit;">
-              <i class="fas fa-database"></i>
-              <div class="repo-info">
-                <h5>HuggingFace Datasets</h5>
-                <p>Open demonstration datasets<br>LeRobot v3.0 format (OXE compatible)</p>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 
 <!-- ============================================================ -->
-<!--  10.5 IMPACT                                                  -->
+<!--  4. STAGE A: SIMULATION (A-1, A-2) — white                   -->
+<!-- ============================================================ -->
+<section class="section" id="simulation">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" data-aos="fade-up">Stage A: Simulation Environment</h2>
+
+    <!-- A-1 + A-2 Agent Cards -->
+    <div class="columns is-multiline" style="margin-top: 1rem;">
+      <!-- A-1 -->
+      <div class="column is-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="agent-detail">
+          <div class="agent-header agent-header-a1">
+            <i class="fas fa-comment-dots"></i>
+            <div><h4>Task Definition <span class="agent-id">[A-1]</span></h4></div>
+          </div>
+          <div class="agent-body">
+            <p class="agent-purpose">NL &rarr; YAML task spec via RAG + LLM (82 indexed tasks)</p>
+            <div class="agent-meta">
+              <span class="meta-tag">GPT-5</span><span class="meta-tag">RAG</span><span class="meta-tag">MiniLM-L6</span>
+            </div>
+            <div class="agent-results"><strong>82</strong> task specs &bull; <strong>8</strong> categories &bull; <strong>4</strong> robot types</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- A-2 -->
+      <div class="column is-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="agent-detail">
+          <div class="agent-header agent-header-a2">
+            <i class="fas fa-cube"></i>
+            <div><h4>Sim Generation <span class="agent-id">[A-2]</span></h4></div>
+          </div>
+          <div class="agent-body">
+            <p class="agent-purpose">YAML &rarr; IsaacLab env code with self-refinement &amp; Domain Randomization</p>
+            <div class="agent-meta">
+              <span class="meta-tag">GPT-5</span><span class="meta-tag">Gemini</span><span class="meta-tag">IsaacLab</span>
+            </div>
+            <div class="agent-results"><strong>87/100</strong> runnability &bull; <strong>5</strong> auto-retries &bull; VLM visual check</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Environment Generation Metrics -->
+    <h4 class="title is-5" style="margin-top: 1.5rem;">Environment Generation [A-1, A-2]</h4>
+    <div class="columns is-multiline is-mobile">
+      <div class="column is-4-desktop is-6-mobile">
+        <div class="result-metric">
+          <span class="metric-value" style="color: #3273dc;">87 / 100</span>
+          <span class="metric-label">Code Runnability</span>
+          <span class="metric-detail">GPT-5-mini, 16 trials</span>
+        </div>
+      </div>
+      <div class="column is-4-desktop is-6-mobile">
+        <div class="result-metric">
+          <span class="metric-value" style="color: #3273dc;">1.8</span>
+          <span class="metric-label">Avg. Code Gen Attempts</span>
+          <span class="metric-detail">Self-refinement loop</span>
+        </div>
+      </div>
+      <div class="column is-4-desktop is-6-mobile">
+        <div class="result-metric">
+          <span class="metric-value" style="color: #3273dc;">4</span>
+          <span class="metric-label">Robot Types Supported</span>
+          <span class="metric-detail">Franka, UR10e, OpenARM, SO-101</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Generated IsaacLab Environment Screenshots -->
+    <div class="columns is-multiline is-mobile" data-aos="fade-up" style="margin-top: 1rem;">
+      <div class="column is-3-desktop is-6-mobile" style="padding: 0.3rem;">
+        <img src="./assets/sim_screenshots/stacktray.png" alt="StackTray environment" style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+        <p class="has-text-grey is-size-7 has-text-centered">Stack in Tray</p>
+      </div>
+      <div class="column is-3-desktop is-6-mobile" style="padding: 0.3rem;">
+        <img src="./assets/sim_screenshots/colorsort.png" alt="ColorSort environment" style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+        <p class="has-text-grey is-size-7 has-text-centered">Color Sort</p>
+      </div>
+      <div class="column is-3-desktop is-6-mobile" style="padding: 0.3rem;">
+        <img src="./assets/sim_screenshots/multipick.png" alt="MultiPickPlace environment" style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+        <p class="has-text-grey is-size-7 has-text-centered">Multi Pick&amp;Place</p>
+      </div>
+      <div class="column is-3-desktop is-6-mobile" style="padding: 0.3rem;">
+        <img src="./assets/sim_screenshots/drawer.png" alt="Drawer environment" style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+        <p class="has-text-grey is-size-7 has-text-centered">Drawer Pick&amp;Place</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!--  5. STAGE B: DATA COLLECTION (A-3, A-4) — light pink         -->
+<!-- ============================================================ -->
+<section class="section bg-pink" id="collection">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" data-aos="fade-up">Stage B: Data Collection</h2>
+
+    <!-- A-3 + A-4 Agent Cards -->
+    <div class="columns is-multiline" style="margin-top: 1rem;">
+      <!-- A-3 -->
+      <div class="column is-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="agent-detail">
+          <div class="agent-header agent-header-a3">
+            <i class="fas fa-database"></i>
+            <div><h4>Data Collection <span class="agent-id">[A-3]</span></h4></div>
+          </div>
+          <div class="agent-body">
+            <p class="agent-purpose">Code-as-Policies data collection with 6-DOF IK &amp; Forward-Reset loop (sim + real)</p>
+            <div class="agent-meta">
+              <span class="meta-tag">Gemini</span><span class="meta-tag">Pinocchio IK</span><span class="meta-tag">LeRobot v3.0</span>
+            </div>
+            <div class="agent-results"><strong>Sim:</strong> 13 tasks, 57 GB, 78% &bull; <strong>Real:</strong> 14 tasks, 10 GB</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- A-4 -->
+      <div class="column is-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="agent-detail">
+          <div class="agent-header agent-header-a4">
+            <i class="fas fa-shield-alt"></i>
+            <div><h4>Dual Validator <span class="agent-id">[A-4]</span></h4></div>
+          </div>
+          <div class="agent-body">
+            <p class="agent-purpose">Pre (AST static analysis) + Post (VLM visual scoring) &rarr; 100-point quality gate</p>
+            <div class="agent-meta">
+              <span class="meta-tag">AST</span><span class="meta-tag">VLM</span><span class="meta-tag">GPT-5</span>
+            </div>
+            <div class="agent-results"><strong>SF</strong> 33/40 &bull; <strong>MDP</strong> 14/20 &bull; <strong>TA</strong> 9/15 &bull; <strong>RV</strong> 17/25</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Collection Tables -->
+    <h4 class="title is-5" style="margin-top: 1.5rem;">Data Collection [A-3]</h4>
+    <div class="columns is-multiline">
+      <div class="column is-6">
+        <h6 class="title is-6" style="margin-bottom: 0.5rem;">Simulation</h6>
+        <table class="styled-table">
+          <tbody>
+            <tr><td>Tasks completed</td><td><b>13</b> (franka30_production batch)</td></tr>
+            <tr><td>Total raw data</td><td><b>57 GB</b> (LeRobot v3.0)</td></tr>
+            <tr><td>Episode success rate</td><td><b>78%</b> (401/514)</td></tr>
+            <tr><td>Avg. episodes / task</td><td>30.8</td></tr>
+            <tr><td>Avg. episode length</td><td>628 steps (min 366, max 1,416)</td></tr>
+            <tr><td>Batch time</td><td>72 hrs (48h collection + 24h failures)</td></tr>
+            <tr><td>Task categories</td><td>8 (Stack, Lift, Pick&amp;Place, Sort, Cabinet, Assembly, Peg Insert, Reach)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="column is-6">
+        <h6 class="title is-6" style="margin-bottom: 0.5rem;">Real-World</h6>
+        <table class="styled-table">
+          <tbody>
+            <tr><td>Tasks (single / dual / UR7e)</td><td><b>7 / 3 / 4</b></td></tr>
+            <tr><td>Total raw data</td><td><b>3.1 / 5.1 / 1.4 GB</b></td></tr>
+            <tr><td>Episode success rate</td><td><b>68% / 71% / 92%</b></td></tr>
+            <tr><td>Avg. episodes / task</td><td>33.2 / 30.3 / 34</td></tr>
+            <tr><td>Avg. episode length</td><td>844 / 1,450 / 1,472 steps</td></tr>
+            <tr><td>Batch time</td><td>5.1 / 4.9 / 5.5 hours</td></tr>
+            <tr><td>Task categories</td><td>Grasping, arrange, stack, insertion, assembly, deformable</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Real-World Detail -->
+    <h4 class="title is-5" style="margin-top: 1.5rem;">Real-World Collection [A-3]</h4>
+    <p class="is-size-6" style="margin-bottom: 1rem;">
+      <b>SO-101 single</b> (7 tasks, 3.1 GB) &bull;
+      <b>SO-101 dual</b> (3 tasks, 5.1 GB) &bull;
+      <b>UR7e</b> (4 tasks, 1.4 GB) &mdash;
+      fully autonomous Forward-Reset loop, no human intervention.
+    </p>
+
+    <!-- AutoDataCollector pipeline demo video -->
+    <div style="margin: 1.5rem 0;" data-aos="fade-up">
+      <video autoplay muted playsinline loop
+             style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+        <source src="./assets/adc_data_collection.mp4" type="video/mp4">
+      </video>
+      <p class="has-text-grey is-size-7 has-text-centered" style="margin-top: 0.5rem;">
+        AutoDataCollector: autonomous Forward-Reset data collection on SO-101 &amp; UR7e
+      </p>
+    </div>
+
+    <!-- ADC VLM Pipeline Visualization -->
+    <h5 class="title is-6" style="margin-top: 1.5rem;">VLM-Driven Autonomous Pipeline</h5>
+    <div class="vlm-pipeline" data-aos="fade-up">
+      <div class="vlm-step">
+        <img src="./static/images/results/initial_state.jpg" alt="Scene">
+        <span class="vlm-label">Scene</span>
+      </div>
+      <span class="vlm-arrow"><i class="fas fa-chevron-right"></i></span>
+      <div class="vlm-step">
+        <img src="./static/images/results/turn1_detection.jpg" alt="Detect">
+        <span class="vlm-label">Detect</span>
+      </div>
+      <span class="vlm-arrow"><i class="fas fa-chevron-right"></i></span>
+      <div class="vlm-step">
+        <img src="./static/images/results/turn2_grasp_points.jpg" alt="Grasp">
+        <span class="vlm-label">Grasp Plan</span>
+      </div>
+      <span class="vlm-arrow"><i class="fas fa-chevron-right"></i></span>
+      <div class="vlm-step">
+        <img src="./static/images/results/workspace_left_arm.jpg" alt="Workspace">
+        <span class="vlm-label">Workspace</span>
+      </div>
+      <span class="vlm-arrow"><i class="fas fa-chevron-right"></i></span>
+      <div class="vlm-step">
+        <img src="./static/images/results/final_state.jpg" alt="Complete">
+        <span class="vlm-label">Complete</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!--  6. STAGE C: ROBOT & LEARNING (B-1, B-2) — light sky         -->
+<!-- ============================================================ -->
+<section class="section bg-sky" id="robot">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" data-aos="fade-up">Stage C: Robot Control &amp; Learning</h2>
+
+    <!-- B-1 + B-2 Agent Cards -->
+    <div class="columns is-multiline" style="margin-top: 1rem;">
+      <!-- B-1 -->
+      <div class="column is-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="agent-detail">
+          <div class="agent-header agent-header-b1">
+            <i class="fas fa-robot"></i>
+            <div><h4>Robot Control <span class="agent-id">[B-1]</span></h4></div>
+          </div>
+          <div class="agent-body">
+            <p class="agent-purpose">5-stage hierarchical pipeline: Perception &rarr; Planner &rarr; Controller &rarr; Robot &rarr; Monitor</p>
+            <div class="agent-meta">
+              <span class="meta-tag">GR00T N1.5</span><span class="meta-tag">ROS2</span><span class="meta-tag">LangChain</span>
+            </div>
+            <div class="agent-results">RoboCasa <strong>16</strong> tasks &bull; LIBERO <strong>10</strong> tasks &bull; Franka &amp; UR7e</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- B-2 -->
+      <div class="column is-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="agent-detail">
+          <div class="agent-header agent-header-b2">
+            <i class="fas fa-brain"></i>
+            <div><h4>VLA Fine-Tuning <span class="agent-id">[B-2]</span></h4></div>
+          </div>
+          <div class="agent-body">
+            <p class="agent-purpose">LoRA adapter fine-tuning with task-specific hot-swap (&lt; 10ms)</p>
+            <div class="agent-meta">
+              <span class="meta-tag">GR00T N1.5</span><span class="meta-tag">Pi0.5</span><span class="meta-tag">LoRA</span>
+            </div>
+            <div class="agent-results">LIBERO <strong>73.5%</strong> &bull; RoboCasa <strong>14.7%</strong> (+8.5%) &bull; 2h on H100x4</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VLA Metrics -->
+    <h4 class="title is-5" style="margin-top: 1.5rem;">VLA Learning &amp; Robot Control [B-1, B-2]</h4>
+    <div class="columns is-multiline is-mobile">
+      <div class="column is-3-desktop is-6-mobile">
+        <div class="result-metric">
+          <span class="metric-value" style="color: #845ef7;">73.5%</span>
+          <span class="metric-label">LIBERO Success Rate</span>
+          <span class="metric-detail">+1.1% vs. baseline</span>
+        </div>
+      </div>
+      <div class="column is-3-desktop is-6-mobile">
+        <div class="result-metric">
+          <span class="metric-value" style="color: #845ef7;">14.7%</span>
+          <span class="metric-label">RoboCasa Success Rate</span>
+          <span class="metric-detail">+8.5% vs. baseline</span>
+        </div>
+      </div>
+      <div class="column is-3-desktop is-6-mobile">
+        <div class="result-metric">
+          <span class="metric-value" style="color: #845ef7;">&lt; 10ms</span>
+          <span class="metric-label">LoRA Adapter Swap</span>
+          <span class="metric-detail">Task-specific switching</span>
+        </div>
+      </div>
+      <div class="column is-3-desktop is-6-mobile">
+        <div class="result-metric">
+          <span class="metric-value" style="color: #845ef7;">2h</span>
+          <span class="metric-label">Fine-tuning Time</span>
+          <span class="metric-detail">H100 x 4 GPUs</span>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-multiline is-mobile">
+      <div class="column is-3-desktop is-6-mobile">
+        <div class="result-metric">
+          <span class="metric-value" style="color: #845ef7;">10&ndash;50 Hz</span>
+          <span class="metric-label">Robot State Feedback</span>
+          <span class="metric-detail">RobotStateData rate</span>
+        </div>
+      </div>
+      <div class="column is-3-desktop is-6-mobile">
+        <div class="result-metric">
+          <span class="metric-value" style="color: #845ef7;">10 Hz</span>
+          <span class="metric-label">Monitor Frequency</span>
+          <span class="metric-detail">VLM visual judgment</span>
+        </div>
+      </div>
+      <div class="column is-3-desktop is-6-mobile">
+        <div class="result-metric">
+          <span class="metric-value" style="color: #845ef7;">3</span>
+          <span class="metric-label">VLA Backends</span>
+          <span class="metric-detail">GR00T N1.5, SmolVLA, Pi0.5</span>
+        </div>
+      </div>
+      <div class="column is-3-desktop is-6-mobile">
+        <div class="result-metric">
+          <span class="metric-value" style="color: #845ef7;">7</span>
+          <span class="metric-label">Training Datasets</span>
+          <span class="metric-detail">Avg. 32.5 episodes, 410 steps</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!--  7. DEMO GALLERY — white                                      -->
+<!-- ============================================================ -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" data-aos="fade-up">Demo Gallery</h2>
+
+    <h6 class="title is-6 has-text-grey" style="margin-bottom: 0.5rem;">Simulation (IsaacLab) &mdash; [A-2]</h6>
+    <div class="columns is-multiline is-mobile" data-aos="fade-up">
+      <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+        <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+          <source src="./assets/demos/sim_franka_stack.mp4" type="video/mp4">
+        </video>
+        <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Stacking</p>
+      </div>
+      <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+        <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+          <source src="./assets/demos/sim_franka_stacktray.mp4" type="video/mp4">
+        </video>
+        <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Tray Stacking</p>
+      </div>
+      <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+        <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+          <source src="./assets/demos/sim_franka_multipick.mp4" type="video/mp4">
+        </video>
+        <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Multi Pick&amp;Place</p>
+      </div>
+      <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+        <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+          <source src="./assets/demos/sim_franka_can.mp4" type="video/mp4">
+        </video>
+        <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Can Pick&amp;Place</p>
+      </div>
+    </div>
+
+    <h6 class="title is-6 has-text-grey" style="margin-bottom: 0.5rem;">Real-World: SO-101 &mdash; [A-3]</h6>
+    <div class="columns is-multiline is-mobile" data-aos="fade-up">
+      <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+        <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+          <source src="./assets/demos/so101_distribute_chocolate.mp4" type="video/mp4">
+        </video>
+        <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Distribute to Plates</p>
+      </div>
+      <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+        <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+          <source src="./assets/demos/so101_stack_blocks.mp4" type="video/mp4">
+        </video>
+        <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">3-Block Stacking</p>
+      </div>
+      <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+        <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+          <source src="./assets/demos/dual_move_block.mp4" type="video/mp4">
+        </video>
+        <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Dual: Block Transfer</p>
+      </div>
+      <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+        <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+          <source src="./assets/demos/dual_towel_folding.mp4" type="video/mp4">
+        </video>
+        <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Dual: Towel Folding</p>
+      </div>
+    </div>
+
+    <h6 class="title is-6 has-text-grey" style="margin-bottom: 0.5rem;">Real-World: UR7e &amp; More &mdash; [A-3]</h6>
+    <div class="columns is-multiline is-mobile" data-aos="fade-up">
+      <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+        <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+          <source src="./assets/demos/ur7e_assemble_battery.mp4" type="video/mp4">
+        </video>
+        <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Battery Assembly</p>
+      </div>
+      <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+        <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+          <source src="./assets/demos/ur7e_nut_bolt.mp4" type="video/mp4">
+        </video>
+        <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Nut &amp; Bolt Assembly</p>
+      </div>
+      <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+        <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+          <source src="./assets/demos/ur7e_makeup_marker.mp4" type="video/mp4">
+        </video>
+        <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Precision Marker</p>
+      </div>
+      <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+        <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+          <source src="./assets/demos/so101_precision_place.mp4" type="video/mp4">
+        </video>
+        <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Precision Placement</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!--  8. RESULTS — light gray                                      -->
+<!-- ============================================================ -->
+<section class="section bg-gray" id="results">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" data-aos="fade-up">Results</h2>
+
+    <h4 class="title is-5" style="margin-top: 1.5rem;">System Efficiency</h4>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Conventional</th>
+          <th>RAPIDS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Task definition time</td>
+          <td>Days ~ weeks (manual reward/env code)</td>
+          <td><b>1 min</b> (NL &rarr; YAML)</td>
+        </tr>
+        <tr>
+          <td>Environment setup time</td>
+          <td>1&ndash;2 weeks (manual sim authoring)</td>
+          <td><b>9 min</b> (LLM generation + self-refinement)</td>
+        </tr>
+        <tr>
+          <td>Data collection throughput</td>
+          <td>10&ndash;20 episodes/hr (teleop)</td>
+          <td><b>~8.5 episodes/hr</b> (fully autonomous)</td>
+        </tr>
+        <tr>
+          <td>Full pipeline (new task)</td>
+          <td>4&ndash;8 weeks</td>
+          <td><b>17 minutes</b></td>
+        </tr>
+        <tr>
+          <td>Cost per episode</td>
+          <td>$10&ndash;50 (operator labor)</td>
+          <td><b>~$0.1</b> (API cost only)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!--  9. HARDWARE & SOFTWARE — white                               -->
+<!-- ============================================================ -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" data-aos="fade-up">Hardware &amp; Software</h2>
+
+    <div class="columns">
+      <div class="column is-6">
+        <h4 class="title is-5">Hardware</h4>
+        <table class="styled-table">
+          <tbody>
+            <tr><td><i class="fas fa-server"></i>&ensp;GPU Server</td><td>NVIDIA H100 80GB x 4</td></tr>
+            <tr><td><i class="fas fa-desktop"></i>&ensp;GPU Workstation</td><td>RTX 5090 / RTX 3090</td></tr>
+            <tr><td><i class="fas fa-robot"></i>&ensp;SO-101 Arms</td><td>5+1 DOF x 2 units</td></tr>
+            <tr><td><i class="fas fa-robot"></i>&ensp;UR7e Arm</td><td>6+1 DOF x 1 unit</td></tr>
+            <tr><td><i class="fas fa-camera"></i>&ensp;Cameras</td><td>Intel RealSense D435 x 1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="column is-6">
+        <h4 class="title is-5">Software</h4>
+        <table class="styled-table">
+          <tbody>
+            <tr><td>OS</td><td>Ubuntu 22.04 LTS</td></tr>
+            <tr><td>Simulator</td><td>Isaac Sim 5.1.0 + IsaacLab v2.3.2</td></tr>
+            <tr><td>Robot Framework</td><td>ROS2 Humble</td></tr>
+            <tr><td>CUDA / Python</td><td>CUDA 12.1 / Python 3.11</td></tr>
+            <tr><td>ML Framework</td><td>PyTorch 2.7.0 + torchvision 0.22.0</td></tr>
+            <tr><td>Data Format</td><td>LeRobot v3.0 (OXE compatible)</td></tr>
+            <tr><td>Container</td><td>Docker (nvidia/cuda:12.1.0-cudnn8-devel-ubuntu22.04)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Robot Build Video -->
+    <div style="margin-top: 1.5rem;" data-aos="fade-up">
+      <video autoplay muted playsinline loop
+             style="width: 100%; max-width: 600px; display: block; margin: 0 auto; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+        <source src="./assets/robot_3dprint.mp4" type="video/mp4">
+      </video>
+      <p class="has-text-grey is-size-7 has-text-centered" style="margin-top: 0.5rem;">SO-101 robot arm: 3D printing &amp; assembly</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!--  10. OPEN SOURCE & DATA — light purple                        -->
+<!-- ============================================================ -->
+<section class="section bg-purple" id="opensource">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" data-aos="fade-up">Open Source &amp; Data</h2>
+
+    <div class="columns is-multiline" style="margin-top: 1rem;">
+      <div class="column is-6">
+        <a href="https://github.com/SKKU-PRISM/Simulation-Generation-Agent" class="repo-card" style="text-decoration:none; color:inherit;">
+          <i class="fab fa-github"></i>
+          <div class="repo-info">
+            <h5>Simulation-Generation-Agent</h5>
+            <p>A-1 Task Spec + A-2 Sim Generation + A-3 Sim Collection + A-4 Evaluator<br>214 files &bull; 62,582 LOC</p>
+          </div>
+        </a>
+      </div>
+      <div class="column is-6">
+        <a href="https://github.com/SKKU-PRISM/AutoDataCollector" class="repo-card" style="text-decoration:none; color:inherit;">
+          <i class="fab fa-github"></i>
+          <div class="repo-info">
+            <h5>AutoDataCollector</h5>
+            <p>A-3 Real-World Data Collection Pipeline<br>139 files &bull; 40,782 LOC &bull; Forward-Reset loop, multi-arm, skill recording</p>
+          </div>
+        </a>
+      </div>
+      <div class="column is-6">
+        <a href="https://github.com/SKKU-PRISM/robobridge" class="repo-card" style="text-decoration:none; color:inherit;">
+          <i class="fab fa-github"></i>
+          <div class="repo-info">
+            <h5>RoboBridge</h5>
+            <p>B-1 Robot Control + B-2 VLA Training<br>165 files &bull; 39,317 LOC &bull; Perception, Planner, Controller, Robot, Monitor</p>
+          </div>
+        </a>
+      </div>
+      <div class="column is-6">
+        <a href="https://huggingface.co/skkuprism" class="repo-card" style="text-decoration:none; color:inherit;">
+          <i class="fas fa-database"></i>
+          <div class="repo-info">
+            <h5>HuggingFace Datasets</h5>
+            <p>Open demonstration datasets<br>LeRobot v3.0 format (OXE compatible)</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!--  11. IMPACT — white                                           -->
 <!-- ============================================================ -->
 <section class="section">
   <div class="container is-max-desktop">
@@ -886,7 +907,7 @@
 <!-- ============================================================ -->
 <!--  11. TEAM                                                     -->
 <!-- ============================================================ -->
-<section class="section" style="background: #f9f9f9;">
+<section class="section bg-gray">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">

@@ -536,6 +536,12 @@ html {
   line-height: 1.5;
 }
 
+/* ===== Pipeline Stage Backgrounds ===== */
+.bg-purple { background: #f5f0ff; }
+.bg-pink { background: #fff0f6; }
+.bg-sky { background: #f0f9ff; }
+.bg-gray { background: #f9fafb; }
+
 /* ===== Footer ===== */
 .footer {
   padding: 2rem 1.5rem;
