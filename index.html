@@ -581,32 +581,32 @@
           </p>
         </div>
 
-        <!-- ADC VLM Pipeline Visualization -->
+        <!-- ADC VLM Pipeline Visualization — compact horizontal -->
         <h5 class="title is-6" style="margin-top: 1.5rem;">VLM-Driven Autonomous Pipeline</h5>
-        <div class="columns is-multiline is-mobile" data-aos="fade-up" style="margin-bottom: 0.5rem;">
-          <div class="column is-4-desktop is-4-mobile" style="padding: 0.3rem;">
-            <img src="./static/images/results/initial_state.jpg" alt="Scene observation" class="agent-demo-img" style="width:100%; margin:0;">
-            <p class="has-text-grey is-size-7 has-text-centered">1. Scene Observation</p>
+        <div class="vlm-pipeline" data-aos="fade-up">
+          <div class="vlm-step">
+            <img src="./static/images/results/initial_state.jpg" alt="Scene">
+            <span class="vlm-label">Scene</span>
           </div>
-          <div class="column is-4-desktop is-4-mobile" style="padding: 0.3rem;">
-            <img src="./static/images/results/turn1_detection.jpg" alt="Object detection" class="agent-demo-img" style="width:100%; margin:0;">
-            <p class="has-text-grey is-size-7 has-text-centered">2. Object Detection</p>
+          <span class="vlm-arrow"><i class="fas fa-chevron-right"></i></span>
+          <div class="vlm-step">
+            <img src="./static/images/results/turn1_detection.jpg" alt="Detect">
+            <span class="vlm-label">Detect</span>
           </div>
-          <div class="column is-4-desktop is-4-mobile" style="padding: 0.3rem;">
-            <img src="./static/images/results/turn2_grasp_points.jpg" alt="Grasp planning" class="agent-demo-img" style="width:100%; margin:0;">
-            <p class="has-text-grey is-size-7 has-text-centered">3. Grasp Planning</p>
+          <span class="vlm-arrow"><i class="fas fa-chevron-right"></i></span>
+          <div class="vlm-step">
+            <img src="./static/images/results/turn2_grasp_points.jpg" alt="Grasp">
+            <span class="vlm-label">Grasp Plan</span>
           </div>
-          <div class="column is-4-desktop is-4-mobile" style="padding: 0.3rem;">
-            <img src="./static/images/results/workspace_left_arm.jpg" alt="Left arm workspace" class="agent-demo-img" style="width:100%; margin:0;">
-            <p class="has-text-grey is-size-7 has-text-centered">4. Workspace (Left)</p>
+          <span class="vlm-arrow"><i class="fas fa-chevron-right"></i></span>
+          <div class="vlm-step">
+            <img src="./static/images/results/workspace_left_arm.jpg" alt="Workspace">
+            <span class="vlm-label">Workspace</span>
           </div>
-          <div class="column is-4-desktop is-4-mobile" style="padding: 0.3rem;">
-            <img src="./static/images/results/workspace_right_arm.jpg" alt="Right arm workspace" class="agent-demo-img" style="width:100%; margin:0;">
-            <p class="has-text-grey is-size-7 has-text-centered">5. Workspace (Right)</p>
-          </div>
-          <div class="column is-4-desktop is-4-mobile" style="padding: 0.3rem;">
-            <img src="./static/images/results/final_state.jpg" alt="Task complete" class="agent-demo-img" style="width:100%; margin:0;">
-            <p class="has-text-grey is-size-7 has-text-centered">6. Task Complete</p>
+          <span class="vlm-arrow"><i class="fas fa-chevron-right"></i></span>
+          <div class="vlm-step">
+            <img src="./static/images/results/final_state.jpg" alt="Complete">
+            <span class="vlm-label">Complete</span>
           </div>
         </div>
 
