@@ -601,11 +601,6 @@ html {
   margin-left: 0.3rem;
 }
 
-.team-badge-wrap {
-  min-height: 1.4rem;
-  margin-bottom: 0.2rem;
-}
-
 .team-badge {
   display: inline-block;
   background: linear-gradient(135deg, #3273dc, #1a56c4);
