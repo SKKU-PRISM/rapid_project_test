@@ -123,8 +123,9 @@
           </p>
           <p>
             RAPIDS produced <b>57 GB</b> of simulation data across <b>13 tasks</b> (78% episode success rate)
-            and <b>8 GB</b> of real-world data on 3 robot platforms (SO-101, UR7e),
-            reducing new-task pipeline time from <b>4&ndash;8 weeks to 17 minutes</b>.
+            and <b>10 GB</b> of real-world data across <b>14 tasks</b> on 3 robot platforms (SO-101 single-arm, SO-101 dual-arm, UR7e),
+            reducing new-task pipeline time from <b>4&ndash;8 weeks to 17 minutes</b>
+            and per-episode cost from <b>$10&ndash;50</b> (operator labor) to <b>~$0.02</b> (API cost).
           </p>
         </div>
       </div>
@@ -169,7 +170,7 @@
           </div>
           <div class="column is-2-desktop is-4-mobile">
             <div class="stat-box">
-              <span class="stat-number">65 GB</span>
+              <span class="stat-number">67 GB</span>
               <span class="stat-label">Collected Data</span>
             </div>
           </div>
@@ -182,7 +183,7 @@
           <div class="column is-2-desktop is-4-mobile">
             <div class="stat-box">
               <span class="stat-number">146K+</span>
-              <span class="stat-label">Lines of Code</span>
+              <span class="stat-label">Lines of Code (522 files)</span>
             </div>
           </div>
           <div class="column is-2-desktop is-4-mobile">
@@ -228,6 +229,44 @@
             <b>B-1</b> provides unified heterogeneous robot control, and
             <b>B-2</b> fine-tunes VLA models with LoRA adapters &mdash;
             all <strong>without human intervention</strong>.
+          </p>
+        </div>
+
+        <!-- Core Algorithms -->
+        <h3 class="title is-4" style="margin-top: 2rem;">Core Algorithms</h3>
+
+        <div class="content has-text-justified">
+          <h5>LLM-based IsaacLab Code Generation</h5>
+          <p>
+            A 679-line system prompt (<code>prompts/isaaclab_generation.md</code>) defines YAML &rarr; IsaacLab
+            <code>ManagerBasedRLEnv</code> code conversion rules, with category-specific reference code as few-shot examples.
+            On execution failure, the error log is fed back to the LLM for up to <b>5 automatic self-refinements</b>.
+            For complex assembly tasks, deterministic templates bypass LLM hallucination.
+          </p>
+
+          <h5>Code-as-Policies Data Collection</h5>
+          <p>
+            The LLM generates skill sequences by composing Perception APIs and action primitives.
+            Execution uses <b>Pinocchio</b> (primary) + <b>IsaacLab DifferentialIK</b> (fallback) for 6-DOF IK
+            (palm-down default &rarr; &plusmn;15&deg;/&plusmn;30&deg; tilt fallback &rarr; 3-DOF fallback,
+            <code>num_random_samples=30</code>). A <b>3-tier success validation</b>
+            (geometric check &rarr; VLM Judge &rarr; environment flag) filters out failed episodes immediately.
+          </p>
+
+          <h5>Dual Pre/Post Verification</h5>
+          <p>
+            <b>Pre-execution:</b> AST-based static analysis checks whether LLM-generated code satisfies the YAML spec,
+            returning concrete violation feedback for iterative correction.
+            <b>Post-execution:</b> VLM receives rendered screenshots (front/top views) and scores environment creation
+            success and task completion quality on a 100-point scale
+            (Scene Fidelity 40 + MDP Correctness 20 + Task Alignment 15 + Runtime Validity 25).
+          </p>
+
+          <h5>LoRA Adapter VLA Fine-Tuning</h5>
+          <p>
+            LeRobot v3.0 demonstration data is preprocessed (80/20 train/val split, normalization statistics)
+            to fine-tune pre-trained VLA models (GR00T N1.5, Pi0.5) via LoRA adapters.
+            Task-specific adapters are hot-swapped in <b>&lt; 10ms</b> through the B-1 Controller module.
           </p>
         </div>
       </div>
@@ -362,7 +401,7 @@
                   <strong>Output:</strong> IsaacLab ManagerBasedRLEnv Python code
                 </div>
                 <ul class="agent-techs">
-                  <li>LLM code generation with 668-line system prompt</li>
+                  <li>LLM code generation with 679-line system prompt</li>
                   <li>Self-refinement loop (up to 5 auto-corrections)</li>
                   <li>Adaptive Domain Randomization (YAML &rarr; EventTermCfg)</li>
                   <li>VLM-based visual environment verification</li>
@@ -417,7 +456,7 @@
                 </div>
                 <div class="agent-results">
                   <strong>Sim:</strong> 13 tasks, 57 GB, 78% success &bull;
-                  <strong>Real:</strong> 13 tasks, 8 GB, 68&ndash;92% success
+                  <strong>Real:</strong> 14 tasks, 10 GB, 68&ndash;92% success
                 </div>
               </div>
             </div>
@@ -557,6 +596,64 @@
 
 
 <!-- ============================================================ -->
+<!--  7.5 DEVELOPMENT TIMELINE                                     -->
+<!-- ============================================================ -->
+    <div class="columns is-centered" style="margin-top: 2rem;">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Development Timeline</h2>
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Agent</th>
+              <th>Planned</th>
+              <th>Status</th>
+              <th>Key Achievement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>[A-1]</b> Task Definition</td>
+              <td>Week 1&ndash;2</td>
+              <td>Complete</td>
+              <td>RAG + LLM 4-stage pipeline, 82 task YAML library</td>
+            </tr>
+            <tr>
+              <td><b>[A-2]</b> Sim Generation</td>
+              <td>Week 2&ndash;3</td>
+              <td>Complete</td>
+              <td>IsaacLab support for 4 robots, 8 task categories</td>
+            </tr>
+            <tr>
+              <td><b>[A-3]</b> Data Collection</td>
+              <td>Week 3&ndash;8</td>
+              <td>Complete</td>
+              <td>6-DOF IK, 3-tier validation, 67 GB data (sim + real)</td>
+            </tr>
+            <tr>
+              <td><b>[A-4]</b> Dual Verification</td>
+              <td>Week 1&ndash;4</td>
+              <td>Complete</td>
+              <td>Static code analysis + dynamic runtime + VLM visual verification</td>
+            </tr>
+            <tr>
+              <td><b>[B-1]</b> Robot Control</td>
+              <td>Week 1&ndash;4</td>
+              <td>Complete</td>
+              <td>Franka &amp; UR7e heterogeneous robot validation</td>
+            </tr>
+            <tr>
+              <td><b>[B-2]</b> VLA Fine-Tuning</td>
+              <td>Week 4&ndash;8</td>
+              <td>Complete</td>
+              <td>VLA training pipeline + LoRA fine-tuning code</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+<!-- ============================================================ -->
 <!--  8. RESULTS                                                   -->
 <!-- ============================================================ -->
     <div class="columns is-centered">
@@ -575,7 +672,7 @@
           </div>
           <div class="column is-4-desktop is-6-mobile">
             <div class="result-metric">
-              <span class="metric-value" style="color: #3273dc;">2.2</span>
+              <span class="metric-value" style="color: #3273dc;">1.8</span>
               <span class="metric-label">Avg. Code Gen Attempts</span>
               <span class="metric-detail">Self-refinement loop</span>
             </div>
@@ -596,11 +693,13 @@
             <h6 class="title is-6" style="margin-bottom: 0.5rem;">Simulation</h6>
             <table class="styled-table">
               <tbody>
-                <tr><td>Tasks completed</td><td><b>13</b></td></tr>
+                <tr><td>Tasks completed</td><td><b>13</b> (franka30_production batch)</td></tr>
                 <tr><td>Total raw data</td><td><b>57 GB</b> (LeRobot v3.0)</td></tr>
                 <tr><td>Episode success rate</td><td><b>78%</b> (401/514)</td></tr>
                 <tr><td>Avg. episodes / task</td><td>30.8</td></tr>
-                <tr><td>Batch time</td><td>3 days (13 tasks)</td></tr>
+                <tr><td>Avg. episode length</td><td>628 steps (min 366, max 1,416)</td></tr>
+                <tr><td>Batch time</td><td>72 hrs (48h collection + 24h failures)</td></tr>
+                <tr><td>Task categories</td><td>8 (Stack, Lift, Pick&amp;Place, Sort, Cabinet, Assembly, Peg Insert, Reach)</td></tr>
               </tbody>
             </table>
           </div>
@@ -608,11 +707,13 @@
             <h6 class="title is-6" style="margin-bottom: 0.5rem;">Real-World</h6>
             <table class="styled-table">
               <tbody>
-                <tr><td>Tasks (single / dual / UR7e)</td><td><b>6 / 3 / 4</b></td></tr>
-                <tr><td>Total raw data</td><td><b>2.5 / 3.4 / 1.4 GB</b></td></tr>
+                <tr><td>Tasks (single / dual / UR7e)</td><td><b>7 / 3 / 4</b></td></tr>
+                <tr><td>Total raw data</td><td><b>3.1 / 5.1 / 1.4 GB</b></td></tr>
                 <tr><td>Episode success rate</td><td><b>68% / 71% / 92%</b></td></tr>
                 <tr><td>Avg. episodes / task</td><td>33.2 / 30.3 / 34</td></tr>
-                <tr><td>Batch time</td><td>5.1 / 3.8 / 5.5 hours</td></tr>
+                <tr><td>Avg. episode length</td><td>844 / 1,450 / 1,472 steps</td></tr>
+                <tr><td>Batch time</td><td>5.1 / 4.9 / 5.5 hours</td></tr>
+                <tr><td>Task categories</td><td>Grasping, arrange, stack, insertion, assembly, deformable</td></tr>
               </tbody>
             </table>
           </div>
@@ -650,12 +751,82 @@
             </div>
           </div>
         </div>
+        <div class="columns is-multiline is-mobile">
+          <div class="column is-3-desktop is-6-mobile">
+            <div class="result-metric">
+              <span class="metric-value" style="color: #845ef7;">10&ndash;50 Hz</span>
+              <span class="metric-label">Robot State Feedback</span>
+              <span class="metric-detail">RobotStateData rate</span>
+            </div>
+          </div>
+          <div class="column is-3-desktop is-6-mobile">
+            <div class="result-metric">
+              <span class="metric-value" style="color: #845ef7;">10 Hz</span>
+              <span class="metric-label">Monitor Frequency</span>
+              <span class="metric-detail">VLM visual judgment</span>
+            </div>
+          </div>
+          <div class="column is-3-desktop is-6-mobile">
+            <div class="result-metric">
+              <span class="metric-value" style="color: #845ef7;">3</span>
+              <span class="metric-label">VLA Backends</span>
+              <span class="metric-detail">GR00T N1.5, SmolVLA, Pi0.5</span>
+            </div>
+          </div>
+          <div class="column is-3-desktop is-6-mobile">
+            <div class="result-metric">
+              <span class="metric-value" style="color: #845ef7;">7</span>
+              <span class="metric-label">Training Datasets</span>
+              <span class="metric-detail">Avg. 32.5 episodes, 410 steps</span>
+            </div>
+          </div>
+        </div>
 
-        <!-- Results chart placeholder -->
-        <div class="placeholder placeholder-medium" style="margin: 2rem 0;">
-          <i class="fas fa-chart-bar"></i>
-          <span class="placeholder-label">Quantitative Results Comparison</span>
-          <span class="placeholder-hint">PLACEHOLDER: Comparison chart (RAPIDS vs. baselines)</span>
+        <!-- Sub: Evaluator Scores (A-4) -->
+        <h4 class="title is-5" style="margin-top: 1.5rem;">Evaluator Breakdown [A-4]</h4>
+        <div class="columns is-multiline is-mobile">
+          <div class="column is-3-desktop is-6-mobile">
+            <div class="result-metric">
+              <span class="metric-value" style="color: #e67e22;">33.4 / 40</span>
+              <span class="metric-label">Scene Fidelity</span>
+              <span class="metric-detail">Asset, physics, robot config</span>
+            </div>
+          </div>
+          <div class="column is-3-desktop is-6-mobile">
+            <div class="result-metric">
+              <span class="metric-value" style="color: #e67e22;">13.6 / 20</span>
+              <span class="metric-label">MDP Correctness</span>
+              <span class="metric-detail">Obs / reward / termination</span>
+            </div>
+          </div>
+          <div class="column is-3-desktop is-6-mobile">
+            <div class="result-metric">
+              <span class="metric-value" style="color: #e67e22;">9.3 / 15</span>
+              <span class="metric-label">Task Alignment</span>
+              <span class="metric-detail">Goal conditions, thresholds</span>
+            </div>
+          </div>
+          <div class="column is-3-desktop is-6-mobile">
+            <div class="result-metric">
+              <span class="metric-value" style="color: #e67e22;">16.8 / 25</span>
+              <span class="metric-label">Runtime Validity</span>
+              <span class="metric-detail">Env creation, physics, NaN/Inf</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub: Real-World Detail -->
+        <h4 class="title is-5" style="margin-top: 1.5rem;">Real-World Collection Detail [A-3]</h4>
+        <div class="content has-text-justified">
+          <p>
+            Real-world data was collected autonomously on three robot configurations:
+            <b>SO-101 single-arm</b> (7 tasks, 3.1 GB),
+            <b>SO-101 dual-arm</b> (3 tasks, 5.1 GB), and
+            <b>UR7e</b> (4 tasks, 1.4 GB).
+            The Forward-Reset loop enabled continuous collection without human intervention,
+            while random seed placement within workspace constraints ensured data diversity.
+            Task categories span grasping, arranging, stacking, insertion, assembly, and deformable object manipulation.
+          </p>
         </div>
 
         <!-- Sub: System Efficiency -->
@@ -701,6 +872,68 @@
 
 
 <!-- ============================================================ -->
+<!--  8.5 COMPARISON TABLE                                         -->
+<!-- ============================================================ -->
+    <div class="columns is-centered" style="margin-top: 2rem;">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Comparison with Conventional Approaches</h2>
+        <div class="content has-text-justified">
+          <p>
+            RAPIDS replaces manual, fragmented workflows with an integrated autonomous pipeline.
+            The following table summarizes the key differences across each stage of the robot learning lifecycle.
+          </p>
+        </div>
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Conventional</th>
+              <th>RAPIDS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Task Definition</td>
+              <td>Manual reward/env code &mdash; days to weeks per task</td>
+              <td><b>[A-1]</b> NL &rarr; RAG + LLM &rarr; YAML in minutes</td>
+            </tr>
+            <tr>
+              <td>Sim Environment</td>
+              <td>Hand-authored env code, manual Domain Randomization</td>
+              <td><b>[A-2]</b> Auto-generated IsaacLab code, self-refinement (5 retries), auto DR, VLM visual check</td>
+            </tr>
+            <tr>
+              <td>Data Collection</td>
+              <td>Teleoperation: 10&ndash;20 ep/hr, requires expert operator</td>
+              <td><b>[A-3]</b> Code-based autonomous collection, 6-DOF IK + 3-tier validation. Sim: 13 tasks (57 GB), Real: 14 tasks (10 GB)</td>
+            </tr>
+            <tr>
+              <td>Quality Assurance</td>
+              <td>Post-hoc manual review or none &mdash; errors propagate</td>
+              <td><b>[A-4]</b> Pre (AST static analysis) + Post (VLM visual scoring) dual verification with auto-correction loop</td>
+            </tr>
+            <tr>
+              <td>Robot Control</td>
+              <td>Per-robot bespoke code, full rewrite on platform change</td>
+              <td><b>[B-1]</b> 5-stage hierarchical pipeline, ROS2 plugin adapters, LoRA adapter swap &lt; 10ms</td>
+            </tr>
+            <tr>
+              <td>VLA Fine-Tuning</td>
+              <td>Manual data curation and training setup</td>
+              <td><b>[B-2]</b> LoRA adapter fine-tuning pipeline with LeRobot v3.0 preprocessing</td>
+            </tr>
+            <tr>
+              <td>Extensibility</td>
+              <td>New task/robot requires full pipeline rewrite</td>
+              <td>Add a YAML spec or robot_profiles/*.yaml &mdash; LLM/VLM multi-backend swappable</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+<!-- ============================================================ -->
 <!--  9. HARDWARE & SOFTWARE                                       -->
 <!-- ============================================================ -->
     <div class="columns is-centered" style="margin-top: 2rem;">
@@ -714,9 +947,9 @@
               <tbody>
                 <tr><td><i class="fas fa-server"></i>&ensp;GPU Server</td><td>NVIDIA H100 80GB x 4</td></tr>
                 <tr><td><i class="fas fa-desktop"></i>&ensp;GPU Workstation</td><td>RTX 5090 / RTX 3090</td></tr>
-                <tr><td><i class="fas fa-robot"></i>&ensp;SO-101 Arms</td><td>5+1 DOF x 4 units</td></tr>
+                <tr><td><i class="fas fa-robot"></i>&ensp;SO-101 Arms</td><td>5+1 DOF x 2 units</td></tr>
                 <tr><td><i class="fas fa-robot"></i>&ensp;UR7e Arm</td><td>6+1 DOF x 1 unit</td></tr>
-                <tr><td><i class="fas fa-camera"></i>&ensp;Cameras</td><td>Intel RealSense D435 x 4</td></tr>
+                <tr><td><i class="fas fa-camera"></i>&ensp;Cameras</td><td>Intel RealSense D435 x 1</td></tr>
               </tbody>
             </table>
           </div>
@@ -727,9 +960,10 @@
                 <tr><td>OS</td><td>Ubuntu 22.04 LTS</td></tr>
                 <tr><td>Simulator</td><td>Isaac Sim 5.1.0 + IsaacLab v2.3.2</td></tr>
                 <tr><td>Robot Framework</td><td>ROS2 Humble</td></tr>
-                <tr><td>ML Framework</td><td>PyTorch 2.7.0</td></tr>
+                <tr><td>CUDA / Python</td><td>CUDA 12.1 / Python 3.11</td></tr>
+                <tr><td>ML Framework</td><td>PyTorch 2.7.0 + torchvision 0.22.0</td></tr>
                 <tr><td>Data Format</td><td>LeRobot v3.0 (OXE compatible)</td></tr>
-                <tr><td>Container</td><td>Docker (CUDA 12.1)</td></tr>
+                <tr><td>Container</td><td>Docker (nvidia/cuda:12.1.0-cudnn8-devel-ubuntu22.04)</td></tr>
               </tbody>
             </table>
           </div>
@@ -741,6 +975,63 @@
           <span class="placeholder-label">Hardware Setup Photo</span>
           <span class="placeholder-hint">PLACEHOLDER: Lab photo showing robot arms, cameras, and compute setup</span>
         </div>
+
+        <!-- AI Models Used -->
+        <h4 class="title is-5" style="margin-top: 2rem;">AI Models &amp; Tools</h4>
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Proposed</th>
+              <th>Actual</th>
+              <th>Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>LLM (code/task)</td>
+              <td>GPT-5.1-codex-max, GPT-5.2</td>
+              <td>GPT-5, GPT-5-mini (Azure OpenAI)</td>
+              <td>&mdash;</td>
+            </tr>
+            <tr>
+              <td>VLM</td>
+              <td>Cosmos-Reason1-7B</td>
+              <td>GPT-5, Gemini (multi-backend)</td>
+              <td>Flexible multi-backend</td>
+            </tr>
+            <tr>
+              <td>VLA</td>
+              <td>GROOT-N1.5, Pi0.5</td>
+              <td>GR00T N1.5, OpenVLA, LeRobot</td>
+              <td>LoRA adapters via [B-2]</td>
+            </tr>
+            <tr>
+              <td>Simulator</td>
+              <td>Isaac Sim + Genesis</td>
+              <td>Isaac Sim (IsaacLab)</td>
+              <td>&mdash;</td>
+            </tr>
+            <tr>
+              <td>Inverse Kinematics</td>
+              <td>cuRobo</td>
+              <td>Pinocchio + IsaacLab DifferentialIK</td>
+              <td>6-DOF IK + FK verification</td>
+            </tr>
+            <tr>
+              <td>Pre-verification</td>
+              <td>Z3 SMT Solver</td>
+              <td>AST-based rule verification</td>
+              <td>Same core objective achieved</td>
+            </tr>
+            <tr>
+              <td>Data Format</td>
+              <td>Open X-Embodiment</td>
+              <td>LeRobot v3.0 (OXE compatible)</td>
+              <td>Compatibility maintained</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
@@ -758,7 +1049,7 @@
               <i class="fab fa-github"></i>
               <div class="repo-info">
                 <h5>Simulation-Generation-Agent</h5>
-                <p>A-1 Task Spec + A-2 Sim Generation + A-4 Evaluator<br>214 files &bull; 62,533 LOC</p>
+                <p>A-1 Task Spec + A-2 Sim Generation + A-3 Sim Collection + A-4 Evaluator<br>214 files &bull; 62,582 LOC</p>
               </div>
             </a>
           </div>
@@ -767,7 +1058,7 @@
               <i class="fab fa-github"></i>
               <div class="repo-info">
                 <h5>AutoDataCollector</h5>
-                <p>A-3 Real-World Data Collection Pipeline<br>Forward-Reset loop, multi-arm, skill recording</p>
+                <p>A-3 Real-World Data Collection Pipeline<br>139 files &bull; 40,782 LOC &bull; Forward-Reset loop, multi-arm, skill recording</p>
               </div>
             </a>
           </div>
@@ -776,7 +1067,7 @@
               <i class="fab fa-github"></i>
               <div class="repo-info">
                 <h5>RoboBridge</h5>
-                <p>B-1 Robot Control + B-2 VLA Training<br>308 files &bull; 83,794 LOC</p>
+                <p>B-1 Robot Control + B-2 VLA Training<br>165 files &bull; 39,317 LOC &bull; Perception, Planner, Controller, Robot, Monitor</p>
               </div>
             </a>
           </div>
@@ -793,6 +1084,67 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!--  10.5 IMPACT                                                  -->
+<!-- ============================================================ -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Impact</h2>
+
+        <div class="columns is-multiline" style="margin-top: 1rem;">
+          <div class="column is-6">
+            <div class="diff-card diff-1">
+              <h4><i class="fas fa-rocket"></i>&ensp;Research Productivity</h4>
+              <p>
+                Automates the biggest bottleneck in robot learning &mdash; data collection &mdash;
+                reducing experiment iteration cycles from <b>weeks to days</b>.
+                RAPIDS produced 13 simulation tasks (57 GB) and 14 real-world tasks (10 GB)
+                in batch mode without human intervention, accelerating Embodied AI research at large.
+              </p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="diff-card diff-2">
+              <h4><i class="fas fa-door-open"></i>&ensp;Lower Barrier to Entry</h4>
+              <p>
+                Previously, environment setup alone took 1&ndash;2 weeks and data collection 2&ndash;4 weeks,
+                totaling 4&ndash;8 weeks of engineering effort. RAPIDS compresses this to <b>5&ndash;7 days</b>
+                with natural-language-level task definitions. 82 task YAMLs, 4 robot profiles, and a plugin
+                architecture enable instant extension via config files.
+              </p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="diff-card diff-3">
+              <h4><i class="fas fa-globe"></i>&ensp;Open Data Ecosystem</h4>
+              <p>
+                All demonstration data is published in <b>LeRobot v3.0</b> (Open X-Embodiment compatible) format
+                on <a href="https://huggingface.co/skkuprism">HuggingFace</a>.
+                Source code, models, and data are openly available, addressing the data scarcity problem
+                in VLA model research and improving reproducibility across the community.
+              </p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="diff-card diff-1">
+              <h4><i class="fas fa-industry"></i>&ensp;Industrial Applicability</h4>
+              <p>
+                Conventional teleoperation costs <b>$10&ndash;50 per episode</b> (operator labor).
+                RAPIDS replaces this with simulation compute at <b>~$0.02 per episode</b> (API cost).
+                Multi-robot support enables multi-platform deployment in manufacturing, logistics,
+                and service robotics with dramatically reduced data collection and model training costs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
