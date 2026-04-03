@@ -493,38 +493,62 @@ html {
 .pipe-step {
   background: white;
   border: 1px solid #d4e4f7;
-  border-radius: 10px;
-  padding: 0.6rem 0.5rem;
-  width: 120px;
+  border-radius: 14px;
+  padding: 1rem 0.75rem;
+  width: 140px;
   text-align: center;
+  color: #333;
   box-shadow: 0 2px 8px rgba(50, 115, 220, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Colored main pipeline steps override */
+.pipe-step[class*="pipe-a"],
+.pipe-step[class*="pipe-b"] {
+  border: none;
+  color: white;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
 }
 
 .pipe-step:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(50, 115, 220, 0.12);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
+
+/* Agent colors matching headers */
+.pipe-a1 { background: linear-gradient(135deg, #ff6b6b, #ee5a24); }
+.pipe-a2 { background: linear-gradient(135deg, #ffa94d, #f39c12); }
+.pipe-a3 { background: linear-gradient(135deg, #51cf66, #2ecc71); }
+.pipe-a4 { background: linear-gradient(135deg, #339af0, #3498db); }
+.pipe-b1 { background: linear-gradient(135deg, #845ef7, #8e44ad); }
+.pipe-b2 { background: linear-gradient(135deg, #f06595, #e84393); }
 
 .pipe-id {
   display: block;
   font-family: 'Google Sans', sans-serif;
-  font-weight: 700;
-  font-size: 0.95rem;
+  font-weight: 800;
+  font-size: 1.1rem;
   color: #3273dc;
 }
 
 .pipe-name {
   display: block;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   color: #666;
-  margin-top: 0.15rem;
+  margin-top: 0.2rem;
+  font-weight: 500;
 }
+
+/* White text for colored steps */
+.pipe-step[class*="pipe-a"] .pipe-id,
+.pipe-step[class*="pipe-b"] .pipe-id { color: white; }
+.pipe-step[class*="pipe-a"] .pipe-name,
+.pipe-step[class*="pipe-b"] .pipe-name { color: rgba(255, 255, 255, 0.9); }
 
 .pipe-arrow {
   color: #3273dc;
-  opacity: 0.5;
-  font-size: 0.9rem;
+  opacity: 0.6;
+  font-size: 1.1rem;
 }
 
 @media screen and (max-width: 768px) {
