@@ -606,14 +606,16 @@ html {
 }
 
 .team-badge {
-  display: inline-block;
+  display: block;
   background: linear-gradient(135deg, #3273dc, #1a56c4);
   color: white;
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   font-weight: 700;
-  padding: 0.15rem 0.5rem;
-  border-radius: 4px;
-  letter-spacing: 0.03em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 5px;
+  letter-spacing: 0.04em;
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
 .team-card .io-list {
