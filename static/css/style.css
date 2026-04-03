@@ -664,6 +664,28 @@ html {
   .vlm-arrow { font-size: 0.6rem; }
 }
 
+/* ===== Track Cards (Data Collection split) ===== */
+.track-card {
+  background: white;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.07);
+  height: 100%;
+}
+
+.track-label {
+  font-family: 'Google Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #1a1a2e;
+  margin-bottom: 0.5rem;
+}
+
+.track-label i {
+  color: #3273dc;
+  margin-right: 0.3rem;
+}
+
 /* ===== Agent card images ===== */
 .agent-demo-img {
   width: 100%;
