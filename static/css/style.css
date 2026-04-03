@@ -480,6 +480,74 @@ html {
   color: #2c3e50;
 }
 
+/* ===== Pipeline Steps Bar ===== */
+.pipeline-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.5rem 0;
+}
+
+.pipe-step {
+  background: white;
+  border: 1px solid #d4e4f7;
+  border-radius: 10px;
+  padding: 0.6rem 1.1rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(50, 115, 220, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pipe-step:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(50, 115, 220, 0.12);
+}
+
+.pipe-id {
+  display: block;
+  font-family: 'Google Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #3273dc;
+}
+
+.pipe-name {
+  display: block;
+  font-size: 0.78rem;
+  color: #666;
+  margin-top: 0.15rem;
+}
+
+.pipe-arrow {
+  color: #3273dc;
+  opacity: 0.5;
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 768px) {
+  .pipeline-steps {
+    gap: 0.35rem;
+  }
+
+  .pipe-step {
+    padding: 0.4rem 0.7rem;
+  }
+
+  .pipe-id {
+    font-size: 0.8rem;
+  }
+
+  .pipe-name {
+    font-size: 0.68rem;
+  }
+
+  .pipe-arrow {
+    font-size: 0.7rem;
+  }
+}
+
 /* ===== Teaser ===== */
 .teaser-figure {
   max-width: 100%;
