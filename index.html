@@ -174,9 +174,11 @@
     <div class="columns is-centered" style="margin-top: 1.5rem;">
       <div class="column is-four-fifths">
         <div class="has-text-centered">
-          <!-- TODO: Replace with full pipeline demo video -->
           <figure class="teaser-figure" data-aos="zoom-in" data-aos-duration="800">
-            <img src="./assets/demo.gif" alt="RAPIDS Demo" style="max-width: 100%; height: auto;">
+            <video autoplay muted playsinline loop poster="./assets/rapids_demo_poster.jpg"
+                   style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 6px 25px rgba(0,0,0,0.12);">
+              <source src="./assets/rapids_demo.mp4" type="video/mp4">
+            </video>
           </figure>
           <p class="has-text-grey is-size-6" style="margin-top: 0.75rem;">
             End-to-end autonomous pipeline: natural language &rarr; simulation &rarr; data collection &rarr; verification &rarr; VLA learning.
