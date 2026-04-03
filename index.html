@@ -18,11 +18,11 @@
   <!-- Custom -->
   <link rel="stylesheet" href="./static/css/style.css">
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./assets/image (6).png">
+  <link rel="icon" type="image/png" href="./assets/prism_logo.png">
   <!-- Open Graph -->
   <meta property="og:title" content="RAPIDS - Robot AI Agents Pipeline">
   <meta property="og:description" content="A multi-agent system automating robot data collection and skill learning from natural language to VLA fine-tuning.">
-  <meta property="og:image" content="./assets/image (6).png">
+  <meta property="og:image" content="./assets/prism_logo.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -63,7 +63,7 @@
         <div class="column has-text-centered">
 
           <div style="margin-bottom: 1.5rem;">
-            <img src="./assets/image (6).png" alt="PRISM Logo" style="max-width: 220px; height: auto;">
+            <img src="./assets/prism_logo.png" alt="PRISM Logo" style="max-width: 220px; height: auto;">
           </div>
 
           <h1 class="title is-1 publication-title">
@@ -487,10 +487,10 @@
                   <li>Bi-arm coordination + multi-camera recording</li>
                   <li>Random seed placement for data diversity</li>
                 </ul>
-                <!-- A-3 demo: real-world detection + grasp -->
-                <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
-                  <img src="./static/images/results/initial_state.jpg" alt="Initial state" class="agent-demo-img" style="width: 50%;">
-                  <img src="./static/images/results/final_state.jpg" alt="Final state" class="agent-demo-img" style="width: 50%;">
+                <!-- Placeholder for A-3 demo -->
+                <div class="placeholder placeholder-small" style="margin-bottom: 1rem;">
+                  <i class="fas fa-image"></i>
+                  <span class="placeholder-hint">PLACEHOLDER: A-3 data collection demo (sim + real)</span>
                 </div>
                 <div class="agent-results">
                   <strong>Sim:</strong> 13 tasks, 57 GB, 78% success &bull;
@@ -531,10 +531,10 @@
                   <li>Runtime Validity: env creation, physics stability, NaN/Inf</li>
                   <li>VLM visual scoring on front/top screenshots</li>
                 </ul>
-                <!-- A-4 demo: detection + grasp point verification -->
-                <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
-                  <img src="./static/images/results/turn1_detection.jpg" alt="Object detection" class="agent-demo-img" style="width: 50%;">
-                  <img src="./static/images/results/turn2_grasp_points.jpg" alt="Grasp point verification" class="agent-demo-img" style="width: 50%;">
+                <!-- Placeholder for A-4 demo -->
+                <div class="placeholder placeholder-small" style="margin-bottom: 1rem;">
+                  <i class="fas fa-image"></i>
+                  <span class="placeholder-hint">PLACEHOLDER: A-4 verification pipeline image</span>
                 </div>
                 <div class="agent-results">
                   <strong>Result:</strong> Static + visual dual verification with auto-correction feedback loop
@@ -574,10 +574,10 @@
                   <li>Trajectory/Joint/Cartesian command types + gripper control</li>
                   <li>Real-time 10Hz monitoring with VLM visual judgment</li>
                 </ul>
-                <!-- B-1 demo: workspace analysis for dual-arm control -->
-                <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
-                  <img src="./static/images/results/workspace_left_arm.jpg" alt="Left arm workspace" class="agent-demo-img" style="width: 50%;">
-                  <img src="./static/images/results/workspace_right_arm.jpg" alt="Right arm workspace" class="agent-demo-img" style="width: 50%;">
+                <!-- Placeholder for B-1 demo -->
+                <div class="placeholder placeholder-small" style="margin-bottom: 1rem;">
+                  <i class="fas fa-image"></i>
+                  <span class="placeholder-hint">PLACEHOLDER: B-1 multi-robot control demo</span>
                 </div>
                 <div class="agent-results">
                   <strong>Result:</strong> RoboCasa 16 tasks + LIBERO 10 tasks &bull; Franka & UR7e validated
@@ -867,47 +867,130 @@
           </p>
         </div>
 
-        <!-- AutoDataCollector pipeline demo -->
+        <!-- AutoDataCollector pipeline demo video -->
         <div style="margin: 1.5rem 0;" data-aos="fade-up">
-          <img src="./assets/demo.gif" alt="AutoDataCollector Forward-Reset loop demo"
-               style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+          <video autoplay muted playsinline loop
+                 style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+            <source src="./assets/adc_data_collection.mp4" type="video/mp4">
+          </video>
           <p class="has-text-grey is-size-7 has-text-centered" style="margin-top: 0.5rem;">
-            AutoDataCollector: autonomous Forward-Reset data collection loop on SO-101
+            AutoDataCollector: autonomous Forward-Reset data collection on SO-101 &amp; UR7e
           </p>
         </div>
 
-        <!-- Real-World Demo Gallery -->
-        <h4 class="title is-5" style="margin-top: 2rem;">Real-World Demo Gallery</h4>
-        <div class="columns is-multiline" data-aos="fade-up">
-          <div class="column is-4">
-            <video autoplay muted playsinline loop style="width:100%; border-radius:10px; box-shadow:0 3px 12px rgba(0,0,0,0.1);">
+        <!-- ADC VLM Pipeline Visualization -->
+        <h5 class="title is-6" style="margin-top: 1.5rem;">VLM-Driven Autonomous Pipeline</h5>
+        <div class="columns is-multiline is-mobile" data-aos="fade-up" style="margin-bottom: 0.5rem;">
+          <div class="column is-4-desktop is-4-mobile" style="padding: 0.3rem;">
+            <img src="./static/images/results/initial_state.jpg" alt="Scene observation" class="agent-demo-img" style="width:100%; margin:0;">
+            <p class="has-text-grey is-size-7 has-text-centered">1. Scene Observation</p>
+          </div>
+          <div class="column is-4-desktop is-4-mobile" style="padding: 0.3rem;">
+            <img src="./static/images/results/turn1_detection.jpg" alt="Object detection" class="agent-demo-img" style="width:100%; margin:0;">
+            <p class="has-text-grey is-size-7 has-text-centered">2. Object Detection</p>
+          </div>
+          <div class="column is-4-desktop is-4-mobile" style="padding: 0.3rem;">
+            <img src="./static/images/results/turn2_grasp_points.jpg" alt="Grasp planning" class="agent-demo-img" style="width:100%; margin:0;">
+            <p class="has-text-grey is-size-7 has-text-centered">3. Grasp Planning</p>
+          </div>
+          <div class="column is-4-desktop is-4-mobile" style="padding: 0.3rem;">
+            <img src="./static/images/results/workspace_left_arm.jpg" alt="Left arm workspace" class="agent-demo-img" style="width:100%; margin:0;">
+            <p class="has-text-grey is-size-7 has-text-centered">4. Workspace (Left)</p>
+          </div>
+          <div class="column is-4-desktop is-4-mobile" style="padding: 0.3rem;">
+            <img src="./static/images/results/workspace_right_arm.jpg" alt="Right arm workspace" class="agent-demo-img" style="width:100%; margin:0;">
+            <p class="has-text-grey is-size-7 has-text-centered">5. Workspace (Right)</p>
+          </div>
+          <div class="column is-4-desktop is-4-mobile" style="padding: 0.3rem;">
+            <img src="./static/images/results/final_state.jpg" alt="Task complete" class="agent-demo-img" style="width:100%; margin:0;">
+            <p class="has-text-grey is-size-7 has-text-centered">6. Task Complete</p>
+          </div>
+        </div>
+
+        <!-- Demo Gallery 4x3 -->
+        <h4 class="title is-5" style="margin-top: 2.5rem;">Demo Gallery</h4>
+
+        <h6 class="title is-6 has-text-grey" style="margin-bottom: 0.5rem;">Simulation (IsaacLab) &mdash; [A-2]</h6>
+        <div class="columns is-multiline is-mobile" data-aos="fade-up">
+          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+              <source src="./assets/demos/sim_franka_stack.mp4" type="video/mp4">
+            </video>
+            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Stacking</p>
+          </div>
+          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+              <source src="./assets/demos/sim_franka_colorsort.mp4" type="video/mp4">
+            </video>
+            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Color Sorting</p>
+          </div>
+          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+              <source src="./assets/demos/sim_franka_linearrange.mp4" type="video/mp4">
+            </video>
+            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Line Arrange</p>
+          </div>
+          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+              <source src="./assets/demos/sim_franka_drawer.mp4" type="video/mp4">
+            </video>
+            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Drawer Pick&amp;Place</p>
+          </div>
+        </div>
+
+        <h6 class="title is-6 has-text-grey" style="margin-bottom: 0.5rem;">Real-World: SO-101 &mdash; [A-3]</h6>
+        <div class="columns is-multiline is-mobile" data-aos="fade-up">
+          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
               <source src="./assets/demos/so101_pick_place.mp4" type="video/mp4">
             </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.4rem;">SO-101: Pick &amp; Place</p>
+            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Pick &amp; Place</p>
           </div>
-          <div class="column is-4">
-            <video autoplay muted playsinline loop style="width:100%; border-radius:10px; box-shadow:0 3px 12px rgba(0,0,0,0.1);">
+          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
               <source src="./assets/demos/so101_stack_blocks.mp4" type="video/mp4">
             </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.4rem;">SO-101: 3-Block Stacking</p>
+            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">3-Block Stacking</p>
           </div>
-          <div class="column is-4">
-            <video autoplay muted playsinline loop style="width:100%; border-radius:10px; box-shadow:0 3px 12px rgba(0,0,0,0.1);">
+          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
               <source src="./assets/demos/dual_move_block.mp4" type="video/mp4">
             </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.4rem;">SO-101 Dual: Block Transfer</p>
+            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Dual: Block Transfer</p>
           </div>
-          <div class="column is-4">
-            <video autoplay muted playsinline loop style="width:100%; border-radius:10px; box-shadow:0 3px 12px rgba(0,0,0,0.1);">
+          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+              <source src="./assets/demos/dual_towel_folding.mp4" type="video/mp4">
+            </video>
+            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Dual: Towel Folding</p>
+          </div>
+        </div>
+
+        <h6 class="title is-6 has-text-grey" style="margin-bottom: 0.5rem;">Real-World: UR7e &amp; More &mdash; [A-3]</h6>
+        <div class="columns is-multiline is-mobile" data-aos="fade-up">
+          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
               <source src="./assets/demos/ur7e_assemble_battery.mp4" type="video/mp4">
             </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.4rem;">UR7e: Battery Assembly</p>
+            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Battery Assembly</p>
           </div>
-          <div class="column is-4">
-            <video autoplay muted playsinline loop style="width:100%; border-radius:10px; box-shadow:0 3px 12px rgba(0,0,0,0.1);">
+          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+              <source src="./assets/demos/ur7e_nut_bolt.mp4" type="video/mp4">
+            </video>
+            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Nut &amp; Bolt Assembly</p>
+          </div>
+          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
               <source src="./assets/demos/ur7e_makeup_marker.mp4" type="video/mp4">
             </video>
-            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.4rem;">UR7e: Precision Marker Task</p>
+            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Precision Marker</p>
+          </div>
+          <div class="column is-3-desktop is-6-mobile" style="padding: 0.4rem;">
+            <video autoplay muted playsinline loop style="width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+              <source src="./assets/demos/so101_arrange_blocks.mp4" type="video/mp4">
+            </video>
+            <p class="has-text-grey is-size-7 has-text-centered" style="margin-top:0.3rem;">Block Arrangement</p>
           </div>
         </div>
 
