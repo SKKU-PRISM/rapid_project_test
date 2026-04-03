@@ -336,32 +336,6 @@
       </div>
     </div>
 
-    <!-- Environment Generation Metrics -->
-    <h4 class="title is-5" style="margin-top: 1.5rem;">Environment Generation [A-1, A-2]</h4>
-    <div class="columns is-multiline is-mobile">
-      <div class="column is-4-desktop is-6-mobile">
-        <div class="result-metric">
-          <span class="metric-value" style="color: #3273dc;">87 / 100</span>
-          <span class="metric-label">Code Runnability</span>
-          <span class="metric-detail">GPT-5-mini, 16 trials</span>
-        </div>
-      </div>
-      <div class="column is-4-desktop is-6-mobile">
-        <div class="result-metric">
-          <span class="metric-value" style="color: #3273dc;">1.8</span>
-          <span class="metric-label">Avg. Code Gen Attempts</span>
-          <span class="metric-detail">Self-refinement loop</span>
-        </div>
-      </div>
-      <div class="column is-4-desktop is-6-mobile">
-        <div class="result-metric">
-          <span class="metric-value" style="color: #3273dc;">4</span>
-          <span class="metric-label">Robot Types Supported</span>
-          <span class="metric-detail">Franka, UR10e, OpenARM, SO-101</span>
-        </div>
-      </div>
-    </div>
-
     <!-- Generated IsaacLab Environment Screenshots -->
     <div class="columns is-multiline is-mobile" data-aos="fade-up" style="margin-top: 1rem;">
       <div class="column is-3-desktop is-6-mobile" style="padding: 0.3rem;">
@@ -429,47 +403,37 @@
       </div>
     </div>
 
-    <!-- Data Collection Tables -->
-    <h4 class="title is-5" style="margin-top: 1.5rem;">Data Collection [A-3]</h4>
-    <div class="columns is-multiline">
-      <div class="column is-6">
-        <h6 class="title is-6" style="margin-bottom: 0.5rem;">Simulation</h6>
-        <table class="styled-table">
-          <tbody>
-            <tr><td>Tasks completed</td><td><b>13</b> (franka30_production batch)</td></tr>
-            <tr><td>Total raw data</td><td><b>57 GB</b> (LeRobot v3.0)</td></tr>
-            <tr><td>Episode success rate</td><td><b>78%</b> (401/514)</td></tr>
-            <tr><td>Avg. episodes / task</td><td>30.8</td></tr>
-            <tr><td>Avg. episode length</td><td>628 steps (min 366, max 1,416)</td></tr>
-            <tr><td>Batch time</td><td>72 hrs (48h collection + 24h failures)</td></tr>
-            <tr><td>Task categories</td><td>8 (Stack, Lift, Pick&amp;Place, Sort, Cabinet, Assembly, Peg Insert, Reach)</td></tr>
-          </tbody>
-        </table>
+    <!-- Data Collection Key Metrics -->
+    <div class="columns is-multiline is-mobile" style="margin-top: 1.5rem;" data-aos="fade-up">
+      <div class="column is-3-desktop is-6-mobile">
+        <div class="result-metric">
+          <span class="metric-value" style="color: #51cf66;">57 GB</span>
+          <span class="metric-label">Simulation Data</span>
+          <span class="metric-detail">13 tasks, 78% success</span>
+        </div>
       </div>
-      <div class="column is-6">
-        <h6 class="title is-6" style="margin-bottom: 0.5rem;">Real-World</h6>
-        <table class="styled-table">
-          <tbody>
-            <tr><td>Tasks (single / dual / UR7e)</td><td><b>7 / 3 / 4</b></td></tr>
-            <tr><td>Total raw data</td><td><b>3.1 / 5.1 / 1.4 GB</b></td></tr>
-            <tr><td>Episode success rate</td><td><b>68% / 71% / 92%</b></td></tr>
-            <tr><td>Avg. episodes / task</td><td>33.2 / 30.3 / 34</td></tr>
-            <tr><td>Avg. episode length</td><td>844 / 1,450 / 1,472 steps</td></tr>
-            <tr><td>Batch time</td><td>5.1 / 4.9 / 5.5 hours</td></tr>
-            <tr><td>Task categories</td><td>Grasping, arrange, stack, insertion, assembly, deformable</td></tr>
-          </tbody>
-        </table>
+      <div class="column is-3-desktop is-6-mobile">
+        <div class="result-metric">
+          <span class="metric-value" style="color: #51cf66;">10 GB</span>
+          <span class="metric-label">Real-World Data</span>
+          <span class="metric-detail">14 tasks, 3 robot configs</span>
+        </div>
+      </div>
+      <div class="column is-3-desktop is-6-mobile">
+        <div class="result-metric">
+          <span class="metric-value" style="color: #51cf66;">78%</span>
+          <span class="metric-label">Sim Success Rate</span>
+          <span class="metric-detail">401 / 514 episodes</span>
+        </div>
+      </div>
+      <div class="column is-3-desktop is-6-mobile">
+        <div class="result-metric">
+          <span class="metric-value" style="color: #51cf66;">68&ndash;92%</span>
+          <span class="metric-label">Real Success Rate</span>
+          <span class="metric-detail">SO-101 single/dual, UR7e</span>
+        </div>
       </div>
     </div>
-
-    <!-- Real-World Detail -->
-    <h4 class="title is-5" style="margin-top: 1.5rem;">Real-World Collection [A-3]</h4>
-    <p class="is-size-6" style="margin-bottom: 1rem;">
-      <b>SO-101 single</b> (7 tasks, 3.1 GB) &bull;
-      <b>SO-101 dual</b> (3 tasks, 5.1 GB) &bull;
-      <b>UR7e</b> (4 tasks, 1.4 GB) &mdash;
-      fully autonomous Forward-Reset loop, no human intervention.
-    </p>
 
     <!-- AutoDataCollector pipeline demo video -->
     <div style="margin: 1.5rem 0;" data-aos="fade-up">
@@ -558,65 +522,34 @@
       </div>
     </div>
 
-    <!-- VLA Metrics -->
-    <h4 class="title is-5" style="margin-top: 1.5rem;">VLA Learning &amp; Robot Control [B-1, B-2]</h4>
-    <div class="columns is-multiline is-mobile">
+    <!-- VLA Key Metrics -->
+    <div class="columns is-multiline is-mobile" style="margin-top: 1.5rem;" data-aos="fade-up">
       <div class="column is-3-desktop is-6-mobile">
         <div class="result-metric">
           <span class="metric-value" style="color: #845ef7;">73.5%</span>
-          <span class="metric-label">LIBERO Success Rate</span>
+          <span class="metric-label">LIBERO Success</span>
           <span class="metric-detail">+1.1% vs. baseline</span>
         </div>
       </div>
       <div class="column is-3-desktop is-6-mobile">
         <div class="result-metric">
           <span class="metric-value" style="color: #845ef7;">14.7%</span>
-          <span class="metric-label">RoboCasa Success Rate</span>
+          <span class="metric-label">RoboCasa Success</span>
           <span class="metric-detail">+8.5% vs. baseline</span>
         </div>
       </div>
       <div class="column is-3-desktop is-6-mobile">
         <div class="result-metric">
           <span class="metric-value" style="color: #845ef7;">&lt; 10ms</span>
-          <span class="metric-label">LoRA Adapter Swap</span>
-          <span class="metric-detail">Task-specific switching</span>
+          <span class="metric-label">Adapter Swap</span>
+          <span class="metric-detail">Task-specific LoRA</span>
         </div>
       </div>
       <div class="column is-3-desktop is-6-mobile">
         <div class="result-metric">
           <span class="metric-value" style="color: #845ef7;">2h</span>
-          <span class="metric-label">Fine-tuning Time</span>
+          <span class="metric-label">Training Time</span>
           <span class="metric-detail">H100 x 4 GPUs</span>
-        </div>
-      </div>
-    </div>
-    <div class="columns is-multiline is-mobile">
-      <div class="column is-3-desktop is-6-mobile">
-        <div class="result-metric">
-          <span class="metric-value" style="color: #845ef7;">10&ndash;50 Hz</span>
-          <span class="metric-label">Robot State Feedback</span>
-          <span class="metric-detail">RobotStateData rate</span>
-        </div>
-      </div>
-      <div class="column is-3-desktop is-6-mobile">
-        <div class="result-metric">
-          <span class="metric-value" style="color: #845ef7;">10 Hz</span>
-          <span class="metric-label">Monitor Frequency</span>
-          <span class="metric-detail">VLM visual judgment</span>
-        </div>
-      </div>
-      <div class="column is-3-desktop is-6-mobile">
-        <div class="result-metric">
-          <span class="metric-value" style="color: #845ef7;">3</span>
-          <span class="metric-label">VLA Backends</span>
-          <span class="metric-detail">GR00T N1.5, SmolVLA, Pi0.5</span>
-        </div>
-      </div>
-      <div class="column is-3-desktop is-6-mobile">
-        <div class="result-metric">
-          <span class="metric-value" style="color: #845ef7;">7</span>
-          <span class="metric-label">Training Datasets</span>
-          <span class="metric-detail">Avg. 32.5 episodes, 410 steps</span>
         </div>
       </div>
     </div>
