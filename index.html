@@ -491,9 +491,17 @@
     <h4 class="title is-4" style="margin-top: 2.5rem;" data-aos="fade-up">
       <i class="fas fa-laptop-code" style="color:#3273dc;"></i>&ensp;Simulation
     </h4>
-    <p class="is-size-6 has-text-grey" style="margin-bottom: 1rem;" data-aos="fade-up">
-      IsaacLab environment &rarr; Code-as-Policies (6-DOF IK) &rarr; LeRobot v3.0 dataset
-    </p>
+    <div class="pipeline-steps" data-aos="fade-up" style="margin: 1rem 0;">
+      <div class="pipe-step"><span class="pipe-id"><i class="fas fa-file-code"></i></span><span class="pipe-name">Env Code Gen</span></div>
+      <span class="pipe-arrow"><i class="fas fa-arrow-right"></i></span>
+      <div class="pipe-step"><span class="pipe-id"><i class="fas fa-cube"></i></span><span class="pipe-name">IsaacLab Sim</span></div>
+      <span class="pipe-arrow"><i class="fas fa-arrow-right"></i></span>
+      <div class="pipe-step"><span class="pipe-id"><i class="fas fa-hand-rock"></i></span><span class="pipe-name">6-DOF IK Exec</span></div>
+      <span class="pipe-arrow"><i class="fas fa-arrow-right"></i></span>
+      <div class="pipe-step"><span class="pipe-id"><i class="fas fa-check-double"></i></span><span class="pipe-name">3-Tier Verify</span></div>
+      <span class="pipe-arrow"><i class="fas fa-arrow-right"></i></span>
+      <div class="pipe-step"><span class="pipe-id"><i class="fas fa-database"></i></span><span class="pipe-name">LeRobot v3.0</span></div>
+    </div>
 
     <!-- Sim metrics -->
     <div class="columns is-mobile is-centered" style="margin-bottom: 1.5rem;" data-aos="fade-up">
