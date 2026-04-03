@@ -485,17 +485,19 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.6rem;
+  flex-wrap: nowrap;
+  gap: 0.4rem;
   margin: 1.5rem 0;
+  overflow-x: auto;
 }
 
 .pipe-step {
   background: white;
   border: 1px solid #d4e4f7;
-  border-radius: 14px;
-  padding: 1rem 0.75rem;
-  width: 140px;
+  border-radius: 12px;
+  padding: 0.7rem 0.4rem;
+  width: 115px;
+  flex-shrink: 0;
   text-align: center;
   color: #333;
   box-shadow: 0 2px 8px rgba(50, 115, 220, 0.06);
@@ -527,15 +529,15 @@ html {
   display: block;
   font-family: 'Google Sans', sans-serif;
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: #3273dc;
 }
 
 .pipe-name {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   color: #666;
-  margin-top: 0.2rem;
+  margin-top: 0.15rem;
   font-weight: 500;
 }
 
@@ -548,7 +550,8 @@ html {
 .pipe-arrow {
   color: #3273dc;
   opacity: 0.6;
-  font-size: 1.1rem;
+  font-size: 0.85rem;
+  flex-shrink: 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -641,7 +644,7 @@ html {
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-.team-card h5 {
+.team-name {
   font-family: 'Google Sans', sans-serif;
   font-weight: 700;
   font-size: 0.95rem;
@@ -649,6 +652,18 @@ html {
   margin-bottom: 0.5rem;
   padding-bottom: 0.4rem;
   border-bottom: 2px solid #3273dc;
+}
+
+.team-tag {
+  display: inline-block;
+  background: #eef3ff;
+  color: #3273dc;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-left: 0.3rem;
 }
 
 .team-card .io-list {
@@ -754,17 +769,27 @@ html {
   display: flex;
   gap: 0.5rem;
   margin-top: 0.5rem;
+  align-items: stretch;
 }
 
 .io-block {
   flex: 1;
   border-radius: 8px;
-  padding: 0.6rem 0.5rem;
+  padding: 0.5rem 0.5rem 0.6rem;
   text-align: center;
   display: flex;
   flex-direction: column;
+}
+
+.io-block .io-label {
+  flex-shrink: 0;
+}
+
+.io-block .io-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 .io-in { background: #e8f4fd; }
