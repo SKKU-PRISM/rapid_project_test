@@ -718,7 +718,7 @@ html {
   gap: 0.5rem;
   margin-top: 0.5rem;
   align-items: stretch;
-  min-height: 100px;
+  flex: 1;
 }
 
 .io-block {
