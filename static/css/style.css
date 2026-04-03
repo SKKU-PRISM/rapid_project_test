@@ -1,5 +1,71 @@
 /* ===== RAPIDS Project Page Styles ===== */
 
+/* ===== Global ===== */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(50, 115, 220, 0.2);
+  color: #1a1a2e;
+}
+
+/* ===== Scroll Progress Bar ===== */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3273dc, #00d1b2, #845ef7);
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ===== Sticky Navigation ===== */
+.navbar.is-rapids {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar.is-rapids .navbar-item {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #363636;
+  transition: color 0.2s;
+}
+
+.navbar.is-rapids .navbar-item:hover {
+  color: #3273dc;
+  background: transparent;
+}
+
+.navbar.is-rapids .navbar-brand .navbar-item {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #3273dc;
+}
+
+/* ===== Hero Gradient Animation ===== */
+.hero {
+  background: linear-gradient(-45deg, #e8f4fd, #f0e6ff, #e6f9f0, #fff5e6);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 /* Typography */
 .publication-title {
   font-family: 'Google Sans', sans-serif;
@@ -110,6 +176,19 @@ html {
   display: block;
 }
 
+.stat-box {
+  transition: transform 0.25s ease;
+}
+
+.stat-box:hover {
+  transform: scale(1.05);
+}
+
+.stat-box:hover .stat-number {
+  color: #1a56c4;
+  transition: color 0.25s ease;
+}
+
 /* ===== Differentiator Cards ===== */
 .diff-card {
   background: white;
@@ -122,8 +201,9 @@ html {
 }
 
 .diff-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 12px 35px rgba(50, 115, 220, 0.15);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .diff-card h4 {
@@ -153,6 +233,12 @@ html {
   height: 100%;
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.agent-detail:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
 }
 
 .agent-detail .agent-header {
@@ -275,6 +361,12 @@ html {
   background: white;
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.result-metric:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .result-metric .metric-value {
@@ -331,6 +423,14 @@ html {
   background: #f9f9f9;
 }
 
+.styled-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.styled-table tbody tr:hover {
+  background: #eef3ff;
+}
+
 /* ===== Highlight Box ===== */
 .highlight-box {
   background: linear-gradient(135deg, #e8f4fd 0%, #f0e6ff 100%);
@@ -369,7 +469,8 @@ html {
 }
 
 .repo-card:hover {
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
 
 .repo-card i {
@@ -405,6 +506,14 @@ html {
   background-color: #f5f5f5;
 }
 
+/* ===== Agent card images ===== */
+.agent-demo-img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
 /* ===== Responsive ===== */
 @media screen and (max-width: 768px) {
   .agent-detail .agent-body {
@@ -413,5 +522,11 @@ html {
 
   .stat-box .stat-number {
     font-size: 1.8rem;
+  }
+
+  .navbar.is-rapids .navbar-menu {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 }

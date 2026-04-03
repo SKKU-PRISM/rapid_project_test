@@ -8,14 +8,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RAPIDS - Robot AI Agents Pipeline for Intelligent Data Collection & Skill Learning</title>
 
+  <!-- Fonts & Frameworks -->
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <!-- AOS Scroll Animation -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <!-- Custom -->
   <link rel="stylesheet" href="./static/css/style.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./assets/image (6).png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="RAPIDS - Robot AI Agents Pipeline">
+  <meta property="og:description" content="A multi-agent system automating robot data collection and skill learning from natural language to VLA fine-tuning.">
+  <meta property="og:image" content="./assets/image (6).png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 
+<!-- Scroll Progress Bar -->
+<div id="scroll-progress"></div>
+
+<!-- Sticky Navigation -->
+<nav class="navbar is-rapids" role="navigation" aria-label="main navigation">
+  <div class="container is-max-desktop">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#">RAPIDS</a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="navMenu" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#abstract">Abstract</a>
+        <a class="navbar-item" href="#system">System</a>
+        <a class="navbar-item" href="#agents">Agents</a>
+        <a class="navbar-item" href="#results">Results</a>
+        <a class="navbar-item" href="#opensource">Open Source</a>
+        <a class="navbar-item" href="#team">Team</a>
+      </div>
+    </div>
+  </div>
+</nav>
 
 <!-- ============================================================ -->
 <!--  1. HERO                                                      -->
@@ -104,8 +140,8 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
+        <h2 class="title is-3" id="abstract">Abstract</h2>
+        <div class="content has-text-justified" data-aos="fade-up">
           <p>
             High-quality demonstration data is the primary bottleneck in robot learning research.
             Teleoperation-based collection yields only 10&ndash;20 episodes per hour, requires skilled operators,
@@ -139,7 +175,7 @@
       <div class="column is-four-fifths">
         <div class="has-text-centered">
           <!-- TODO: Replace with full pipeline demo video -->
-          <figure class="teaser-figure">
+          <figure class="teaser-figure" data-aos="zoom-in" data-aos-duration="800">
             <img src="./assets/demo.gif" alt="RAPIDS Demo" style="max-width: 100%; height: auto;">
           </figure>
           <p class="has-text-grey is-size-6" style="margin-top: 0.75rem;">
@@ -155,7 +191,7 @@
 <!-- ============================================================ -->
     <div class="columns is-centered" style="margin-top: 1rem;">
       <div class="column is-12">
-        <div class="columns is-mobile is-multiline has-text-centered">
+        <div class="columns is-mobile is-multiline has-text-centered" data-aos="fade-up">
           <div class="column is-2-desktop is-4-mobile">
             <div class="stat-box">
               <span class="stat-number">6</span>
@@ -202,7 +238,7 @@
 <!-- ============================================================ -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">System Overview</h2>
+        <h2 class="title is-3" id="system">System Overview</h2>
         <div class="content has-text-justified">
           <p>
             RAPIDS consists of 6 specialized agents orchestrated in an end-to-end pipeline.
@@ -219,7 +255,7 @@
           <span class="placeholder-hint">PLACEHOLDER: 6-Agent pipeline overview with Sim/Real-World tracks</span>
         </div>
 
-        <div class="highlight-box">
+        <div class="highlight-box" data-aos="fade-up">
           <p>
             <strong>Pipeline Flow:</strong>
             A natural language command (e.g., <em>"Stack the blocks inside the tray"</em>) is processed by
@@ -278,11 +314,11 @@
 <!-- ============================================================ -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Key Differentiators</h2>
+        <h2 class="title is-3" data-aos="fade-up">Key Differentiators</h2>
 
         <div class="columns" style="margin-top: 1rem;">
           <!-- E2E Autonomy -->
-          <div class="column is-4">
+          <div class="column is-4" data-aos="fade-up" data-aos-delay="0">
             <div class="diff-card diff-1">
               <h4><i class="fas fa-infinity"></i>&ensp;End-to-End Autonomy</h4>
               <p>
@@ -293,7 +329,7 @@
             </div>
           </div>
           <!-- Closed-Loop Quality -->
-          <div class="column is-4">
+          <div class="column is-4" data-aos="fade-up" data-aos-delay="100">
             <div class="diff-card diff-2">
               <h4><i class="fas fa-sync-alt"></i>&ensp;Closed-Loop Quality</h4>
               <p>
@@ -305,7 +341,7 @@
             </div>
           </div>
           <!-- Physical World -->
-          <div class="column is-4">
+          <div class="column is-4" data-aos="fade-up" data-aos-delay="200">
             <div class="diff-card diff-3">
               <h4><i class="fas fa-cogs"></i>&ensp;Physical World Design</h4>
               <p>
@@ -325,7 +361,7 @@
 <!-- ============================================================ -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Agents</h2>
+        <h2 class="title is-3" id="agents">Agents</h2>
         <div class="content has-text-justified">
           <p>
             Each agent is a specialized module with its own AI models, inputs/outputs, and verification mechanisms.
@@ -336,7 +372,7 @@
         <div class="columns is-multiline" style="margin-top: 1rem;">
 
           <!-- A-1: Task Definition -->
-          <div class="column is-6">
+          <div class="column is-6" data-aos="fade-up" data-aos-delay="0">
             <div class="agent-detail">
               <div class="agent-header agent-header-a1">
                 <i class="fas fa-comment-dots"></i>
@@ -377,7 +413,7 @@
           </div>
 
           <!-- A-2: Simulation Generation -->
-          <div class="column is-6">
+          <div class="column is-6" data-aos="fade-up" data-aos-delay="100">
             <div class="agent-detail">
               <div class="agent-header agent-header-a2">
                 <i class="fas fa-cube"></i>
@@ -419,7 +455,7 @@
           </div>
 
           <!-- A-3: Data Collection -->
-          <div class="column is-6">
+          <div class="column is-6" data-aos="fade-up" data-aos-delay="0">
             <div class="agent-detail">
               <div class="agent-header agent-header-a3">
                 <i class="fas fa-database"></i>
@@ -449,10 +485,10 @@
                   <li>Bi-arm coordination + multi-camera recording</li>
                   <li>Random seed placement for data diversity</li>
                 </ul>
-                <!-- Placeholder for A-3 demo -->
-                <div class="placeholder placeholder-small" style="margin-bottom: 1rem;">
-                  <i class="fas fa-image"></i>
-                  <span class="placeholder-hint">PLACEHOLDER: A-3 data collection demo (sim + real)</span>
+                <!-- A-3 demo: real-world detection + grasp -->
+                <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                  <img src="./static/images/results/initial_state.jpg" alt="Initial state" class="agent-demo-img" style="width: 50%;">
+                  <img src="./static/images/results/final_state.jpg" alt="Final state" class="agent-demo-img" style="width: 50%;">
                 </div>
                 <div class="agent-results">
                   <strong>Sim:</strong> 13 tasks, 57 GB, 78% success &bull;
@@ -463,7 +499,7 @@
           </div>
 
           <!-- A-4: Verification -->
-          <div class="column is-6">
+          <div class="column is-6" data-aos="fade-up" data-aos-delay="100">
             <div class="agent-detail">
               <div class="agent-header agent-header-a4">
                 <i class="fas fa-shield-alt"></i>
@@ -493,10 +529,10 @@
                   <li>Runtime Validity: env creation, physics stability, NaN/Inf</li>
                   <li>VLM visual scoring on front/top screenshots</li>
                 </ul>
-                <!-- Placeholder for A-4 demo -->
-                <div class="placeholder placeholder-small" style="margin-bottom: 1rem;">
-                  <i class="fas fa-image"></i>
-                  <span class="placeholder-hint">PLACEHOLDER: A-4 verification pipeline image</span>
+                <!-- A-4 demo: detection + grasp point verification -->
+                <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                  <img src="./static/images/results/turn1_detection.jpg" alt="Object detection" class="agent-demo-img" style="width: 50%;">
+                  <img src="./static/images/results/turn2_grasp_points.jpg" alt="Grasp point verification" class="agent-demo-img" style="width: 50%;">
                 </div>
                 <div class="agent-results">
                   <strong>Result:</strong> Static + visual dual verification with auto-correction feedback loop
@@ -506,7 +542,7 @@
           </div>
 
           <!-- B-1: Robot Control -->
-          <div class="column is-6">
+          <div class="column is-6" data-aos="fade-up" data-aos-delay="0">
             <div class="agent-detail">
               <div class="agent-header agent-header-b1">
                 <i class="fas fa-robot"></i>
@@ -536,10 +572,10 @@
                   <li>Trajectory/Joint/Cartesian command types + gripper control</li>
                   <li>Real-time 10Hz monitoring with VLM visual judgment</li>
                 </ul>
-                <!-- Placeholder for B-1 demo -->
-                <div class="placeholder placeholder-small" style="margin-bottom: 1rem;">
-                  <i class="fas fa-image"></i>
-                  <span class="placeholder-hint">PLACEHOLDER: B-1 multi-robot control demo</span>
+                <!-- B-1 demo: workspace analysis for dual-arm control -->
+                <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                  <img src="./static/images/results/workspace_left_arm.jpg" alt="Left arm workspace" class="agent-demo-img" style="width: 50%;">
+                  <img src="./static/images/results/workspace_right_arm.jpg" alt="Right arm workspace" class="agent-demo-img" style="width: 50%;">
                 </div>
                 <div class="agent-results">
                   <strong>Result:</strong> RoboCasa 16 tasks + LIBERO 10 tasks &bull; Franka & UR7e validated
@@ -549,7 +585,7 @@
           </div>
 
           <!-- B-2: VLA Training -->
-          <div class="column is-6">
+          <div class="column is-6" data-aos="fade-up" data-aos-delay="100">
             <div class="agent-detail">
               <div class="agent-header agent-header-b2">
                 <i class="fas fa-brain"></i>
@@ -658,7 +694,7 @@
 <!-- ============================================================ -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Results</h2>
+        <h2 class="title is-3" id="results">Results</h2>
 
         <!-- Sub: Environment Generation (A-1, A-2) -->
         <h4 class="title is-5" style="margin-top: 1.5rem;">Environment Generation [A-1, A-2]</h4>
@@ -1041,7 +1077,7 @@
 <!-- ============================================================ -->
     <div class="columns is-centered" style="margin-top: 2rem;">
       <div class="column is-full-width">
-        <h2 class="title is-3">Open Source &amp; Data</h2>
+        <h2 class="title is-3" id="opensource">Open Source &amp; Data</h2>
 
         <div class="columns is-multiline" style="margin-top: 1rem;">
           <div class="column is-6">
@@ -1095,7 +1131,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Impact</h2>
+        <h2 class="title is-3" data-aos="fade-up">Impact</h2>
 
         <div class="columns is-multiline" style="margin-top: 1rem;">
           <div class="column is-6">
@@ -1156,7 +1192,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered">Team</h2>
+        <h2 class="title is-3 has-text-centered" id="team">Team</h2>
 
         <table class="styled-table" style="max-width: 800px; margin: 1.5rem auto;">
           <thead>
@@ -1260,6 +1296,28 @@
     </div>
   </div>
 </footer>
+
+<!-- AOS.js -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  // Init scroll animations
+  AOS.init({ duration: 700, once: true, offset: 80 });
+
+  // Scroll progress bar
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('scroll-progress').style.width = pct + '%';
+  });
+
+  // Bulma navbar burger toggle
+  document.querySelectorAll('.navbar-burger').forEach(function(el) {
+    el.addEventListener('click', function() {
+      el.classList.toggle('is-active');
+      document.getElementById(el.dataset.target).classList.toggle('is-active');
+    });
+  });
+</script>
 
 </body>
 </html>
