@@ -415,9 +415,9 @@
           </div>
           <div class="agent-body">
             <div class="agent-io-grid">
-              <div class="io-block io-in"><span class="io-label">Input</span><span class="io-text">Natural language task description</span></div>
-              <div class="io-block io-proc"><span class="io-label">Process</span><span class="io-text">RAG search (82 tasks) + LLM parsing</span></div>
-              <div class="io-block io-out"><span class="io-label">Output</span><span class="io-text">YAML task specification</span></div>
+              <div class="io-block io-in"><span class="io-label">Input</span><ul class="io-list"><li>Natural language task description</li></ul></div>
+              <div class="io-block io-proc"><span class="io-label">Process</span><ul class="io-list"><li>RAG search (82 tasks)</li><li>LLM parsing</li></ul></div>
+              <div class="io-block io-out"><span class="io-label">Output</span><ul class="io-list"><li>YAML task specification</li></ul></div>
             </div>
           </div>
         </div>
@@ -432,9 +432,9 @@
           </div>
           <div class="agent-body">
             <div class="agent-io-grid">
-              <div class="io-block io-in"><span class="io-label">Input</span><span class="io-text">YAML task spec</span></div>
-              <div class="io-block io-proc"><span class="io-label">Process</span><span class="io-text">LLM code gen + self-refinement (5x) + VLM check</span></div>
-              <div class="io-block io-out"><span class="io-label">Output</span><span class="io-text">IsaacLab environment code</span></div>
+              <div class="io-block io-in"><span class="io-label">Input</span><ul class="io-list"><li>YAML task spec</li></ul></div>
+              <div class="io-block io-proc"><span class="io-label">Process</span><ul class="io-list"><li>LLM code generation</li><li>Self-refinement (5x)</li><li>VLM visual check</li></ul></div>
+              <div class="io-block io-out"><span class="io-label">Output</span><ul class="io-list"><li>IsaacLab environment code</li></ul></div>
             </div>
           </div>
         </div>
@@ -482,9 +482,9 @@
           </div>
           <div class="agent-body">
             <div class="agent-io-grid">
-              <div class="io-block io-in"><span class="io-label">Input</span><span class="io-text">Task instruction + environment + skills</span></div>
-              <div class="io-block io-proc"><span class="io-label">Process</span><span class="io-text">Code-as-Policies + 6-DOF IK + Forward-Reset</span></div>
-              <div class="io-block io-out"><span class="io-label">Output</span><span class="io-text">LeRobot v3.0 dataset</span></div>
+              <div class="io-block io-in"><span class="io-label">Input</span><ul class="io-list"><li>Task instruction</li><li>Environment</li><li>Skill primitives</li></ul></div>
+              <div class="io-block io-proc"><span class="io-label">Process</span><ul class="io-list"><li>Code-as-Policies</li><li>6-DOF IK (Pinocchio)</li><li>Forward-Reset loop</li></ul></div>
+              <div class="io-block io-out"><span class="io-label">Output</span><ul class="io-list"><li>LeRobot v3.0 dataset</li></ul></div>
             </div>
           </div>
         </div>
@@ -497,9 +497,9 @@
           </div>
           <div class="agent-body">
             <div class="agent-io-grid">
-              <div class="io-block io-in"><span class="io-label">Input</span><span class="io-text">Generated code + YAML spec</span></div>
-              <div class="io-block io-proc"><span class="io-label">Process</span><span class="io-text">AST static analysis + VLM visual scoring</span></div>
-              <div class="io-block io-out"><span class="io-label">Output</span><span class="io-text">100-point score + feedback</span></div>
+              <div class="io-block io-in"><span class="io-label">Input</span><ul class="io-list"><li>Generated code</li><li>YAML spec</li></ul></div>
+              <div class="io-block io-proc"><span class="io-label">Process</span><ul class="io-list"><li>AST static analysis</li><li>VLM visual scoring</li></ul></div>
+              <div class="io-block io-out"><span class="io-label">Output</span><ul class="io-list"><li>100-point score</li><li>Violation feedback</li></ul></div>
             </div>
           </div>
         </div>
@@ -666,9 +666,9 @@
           </div>
           <div class="agent-body">
             <div class="agent-io-grid">
-              <div class="io-block io-in"><span class="io-label">Input</span><span class="io-text">NL command + RGB/RGBD image</span></div>
-              <div class="io-block io-proc"><span class="io-label">Process</span><span class="io-text">Perception &rarr; Planner &rarr; Controller &rarr; Monitor</span></div>
-              <div class="io-block io-out"><span class="io-label">Output</span><span class="io-text">Robot trajectory / joint commands</span></div>
+              <div class="io-block io-in"><span class="io-label">Input</span><ul class="io-list"><li>NL command</li><li>RGB/RGBD image</li></ul></div>
+              <div class="io-block io-proc"><span class="io-label">Process</span><ul class="io-list"><li>Perception</li><li>Planner</li><li>Controller</li><li>Monitor</li></ul></div>
+              <div class="io-block io-out"><span class="io-label">Output</span><ul class="io-list"><li>Robot trajectory</li><li>Joint commands</li></ul></div>
             </div>
           </div>
         </div>
@@ -683,9 +683,9 @@
           </div>
           <div class="agent-body">
             <div class="agent-io-grid">
-              <div class="io-block io-in"><span class="io-label">Input</span><span class="io-text">Demo data + pre-trained VLA</span></div>
-              <div class="io-block io-proc"><span class="io-label">Process</span><span class="io-text">LoRA adapter fine-tuning + preprocessing</span></div>
-              <div class="io-block io-out"><span class="io-label">Output</span><span class="io-text">Task-specific VLA model</span></div>
+              <div class="io-block io-in"><span class="io-label">Input</span><ul class="io-list"><li>Demo data</li><li>Pre-trained VLA</li></ul></div>
+              <div class="io-block io-proc"><span class="io-label">Process</span><ul class="io-list"><li>Data preprocessing</li><li>LoRA adapter fine-tuning</li></ul></div>
+              <div class="io-block io-out"><span class="io-label">Output</span><ul class="io-list"><li>Task-specific VLA model</li></ul></div>
             </div>
           </div>
         </div>
