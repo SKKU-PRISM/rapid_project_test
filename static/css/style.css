@@ -495,6 +495,7 @@ html {
   border: 1px solid #d4e4f7;
   border-radius: 10px;
   padding: 0.6rem 1.1rem;
+  min-width: 110px;
   text-align: center;
   box-shadow: 0 2px 8px rgba(50, 115, 220, 0.06);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
