@@ -118,61 +118,11 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ===== Placeholder ===== */
-.placeholder {
-  background: linear-gradient(135deg, #f0f4f8 0%, #e8ecf1 100%);
-  border: 2px dashed #b0bec5;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #78909c;
-  font-family: 'Google Sans', sans-serif;
-  text-align: center;
-  transition: border-color 0.2s;
-}
-
-.placeholder:hover {
-  border-color: #3273dc;
-}
-
-.placeholder i {
-  font-size: 2.5rem;
-  margin-bottom: 0.75rem;
-  opacity: 0.5;
-}
-
-.placeholder .placeholder-label {
-  font-size: 0.95rem;
-  font-weight: 500;
-}
-
-.placeholder .placeholder-hint {
-  font-size: 0.8rem;
-  opacity: 0.7;
-  margin-top: 0.25rem;
-}
-
-.placeholder-wide {
-  min-height: 350px;
-  padding: 2rem;
-}
-
-.placeholder-medium {
-  min-height: 200px;
-  padding: 1.5rem;
-}
-
-.placeholder-small {
-  min-height: 140px;
-  padding: 1rem;
-}
-
 /* ===== Stat Counters ===== */
 .stat-box {
   text-align: center;
   padding: 1.25rem 0.75rem;
+  transition: transform 0.25s ease;
 }
 
 .stat-box .stat-number {
@@ -189,10 +139,6 @@ html {
   color: #666;
   margin-top: 0.5rem;
   display: block;
-}
-
-.stat-box {
-  transition: transform 0.25s ease;
 }
 
 .stat-box:hover {
@@ -467,19 +413,6 @@ html {
   box-shadow: inset 3px 0 0 #3273dc;
 }
 
-/* ===== Highlight Box ===== */
-.highlight-box {
-  background: linear-gradient(135deg, #e8f4fd 0%, #f0e6ff 100%);
-  border-radius: 12px;
-  padding: 1.5rem 2rem;
-  margin: 1.5rem 0;
-  border: 1px solid #d4e4f7;
-}
-
-.highlight-box strong {
-  color: #2c3e50;
-}
-
 /* ===== Pipeline Steps Bar ===== */
 .pipeline-steps {
   display: flex;
@@ -489,8 +422,7 @@ html {
   gap: 0.4rem;
   margin: 1.5rem 0;
   padding: 0.5rem 0.5rem;
-  overflow-x: auto;
-  overflow-y: visible;
+  overflow: visible;
 }
 
 .pipe-step {
@@ -705,7 +637,7 @@ html {
   gap: 0.4rem;
   margin: 1rem 0 1.5rem;
   flex-wrap: nowrap;
-  overflow-x: auto;
+  overflow: visible;
 }
 
 .vlm-step {
