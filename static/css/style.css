@@ -575,7 +575,7 @@ html {
 }
 
 .team-card-lead {
-  border-top: 3px solid #3273dc;
+  border-top: 2px solid #3273dc;
 }
 
 .team-card:hover {
@@ -606,16 +606,15 @@ html {
 }
 
 .team-badge {
-  display: block;
+  display: inline-block;
   background: linear-gradient(135deg, #3273dc, #1a56c4);
   color: white;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 700;
-  padding: 0.25rem 0.75rem;
-  border-radius: 5px;
-  letter-spacing: 0.04em;
-  text-align: center;
-  margin-bottom: 0.5rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.4rem;
 }
 
 .team-card .io-list {
@@ -636,6 +635,9 @@ html {
   font-size: 0.72rem;
   color: #666;
   line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ===== BibTeX ===== */
